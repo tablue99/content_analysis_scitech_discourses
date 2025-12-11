@@ -1,0 +1,11 @@
+---
+title: "Disentangling technoscientific media discourses"
+author: "Tabea Lüders"
+format: html
+toc: true
+bibliography: references_phd.bib
+---
+
+## I Introduction
+
+Content analyses lay at the core of communication sciences. As only original method of the field (Rössler) they are especially popular within journalism and mass media communication studies (Früh) since they provide answers to a variety of questions regarding the information that is reaching great and disperse audiences (Quelle).
