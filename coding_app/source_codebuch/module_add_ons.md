@@ -6,7 +6,7 @@ Module ermöglichen eine spezifischere Erfassung verschiedener, oftmals themensp
 Aktuell stehen folgende Module bereit:
 
 *1. Diskursübergreifende Module:*
-- Wissenschaftliche Disziplin **[discpline]**: Variable, die eine Unterscheidung von Akteur:innen der Kategorie "100 = Wissenschaft" in [socarea] hinsichtlich ihrer wissenschaftlichen Fachdisziplin ermöglicht.
+- <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/1718e5391812b44355f224aa0b79b2827b4d0158/coding_app/modules_and_add_ons/module_discipline" target="_blank"> Wissenschaftliche Disziplin</a> <b>[discpline]</b>: Variable, die eine Unterscheidung von Akteur:innen der Kategorie "100 = Wissenschaft" in [socarea] hinsichtlich ihrer wissenschaftlichen Fachdisziplin ermöglicht.
 - Wissenschaftliche Abhängigkeit **[scidepend]**: Variable, die Akteur:innen der Kategorien "130 = außeruniversitäre Forschung" und "140 = wissenschaftliche Verbände" auf Basis ihrer Affiliation mit Blick auf die Gebundenheit an bzw. Unabhängigkeit von Partialinteressen in ihrer Forschungstätigekeit unterscheidet.
 - Nicht-wissenschaftliche politische Beratung **[poladvice]**: Variable, mit deren Hilfe Mitglieder in nicht-wissenschaftlichen, politischen Beratungsgremien von klassischeren, politisch administrativen Akteur:innen in Behörden, Ministerien usw. unterschieden werden können.
 - Expert:innenstatus **[expert]**: mehrere Indikatorvariablen, mit denen in Kombination mit [socarea] ermittelt werden kann, ob und um welche Art von Expert:innen es sich bei einzelnen Akteur:innen handelt.
