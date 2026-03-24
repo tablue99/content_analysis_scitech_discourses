@@ -1,0 +1,37 @@
+
+### Formale Variablen und Filter - Akteursebene
+
+Auch auf der Akteursebene werden zunächst automatisch einige formale sowie Filtervariablen festgehalten, die nicht weiter manuell codiert werden müssen. Die Codieranweisung für die Filtervariable sollte jedoch mit Blick auf die Opt-Out-Codierung zur Identifikation von Irrläufern aus den vorherigen vollständig automatisierten Schritten beachtet werden.
+
+###### **Akteur:innen-ID** [entity_id]
+Für jede:n Akteur:in, der:die im NER-Verfahren identifiziert wird, wird automatisch eine Akteurs-ID generiert, die sich aus der Nummer des Artikels und der Nummer des Satzes innerhalb des Artikels, in dem der:die Akteur:in vorkommt, sowie der Nummer des:der Akteur:in innerhalb des Satzes (falls mehrere Akteur:innen in einem Satz erwähnt werden) zusammensetzt. Beispiel: 300501 ist der:die erste Akteur:in im fünften Satz des dritten Artikels.
+
+###### **Name des:der Akteur:in** [entity]
+Der Name des:der Akteur:in wird automatisiert während des NER-Verfahrens erfasst. Eine manuelle Codierung ist nicht erforderlich.
+
+###### **FILTER** [relevant]
+Ob ein:e Akteur:in relevant ist, wird mithilfe der bereits R-Funktionen im "actordupes"-Package und des lokal am KIT gehosteten gLLMs kit.gpt-oss120b automatisiert codiert. Eine manuelle Filterung ist nicht erforderlich. 
+Es gibt jedoch die Möglichkeit, fälschlicherweise als "relevant" klassifizierte Akteur:innen (Irrläufer) im Zuge der manuellen Codierung nachträglich als "irrelevant" zu markieren und somit deren Codierung abzubrechen [opt_out_relevant].
+Nicht relevant sind NER-erkannte Akteur:innen, die 
+1. Autor:innen des Artikels sind [journalist]
+	- automatisierter Vergleich der Namen in [entity] und [article_byline]
+	- Prompt: "Du erhältst einen Satz aus einem Artikel. Entscheide, ob der Name '{entity}' höchstwahrscheinlich Autor, Interviewer, Fotograf, Illustrator oder Editor des Artikels ist. Sind mehrere Personen am Artikel beteiligt, sind sie oft nacheinander aufgelistet. Die Namen von Autoren, Fotografen und Illustratoren sind oft in Großbuchstaben geschrieben. Interviewer ist die Personen, die ein Gespräch oder Interview geführt hat. Satz: '{sentence}' Bitte gib das Ergebnis als Funktionsaufruf zurück.")
+2. keine realen Personen sind (z. B. fiktive Charaktere, Ortsnamen, Markennamen) [misclassification]
+	- Prompt: "Ist '{entity}' im folgenden Text der Name einer realen Person? Beachte: Es geht nicht um Berufsbezeichnungen oder Rollen, sondern nur um echte Personennamen. Text: '{sentence}' Entscheide im Zweifelsfall immer, dass es sich um den Namen einer realen Person handelt. Bitte gib das Ergebnis als Funktionsaufruf zurück."
+3. im vorliegenden Artikel bereits codiert wurden [duplicate]
+	- automatisierter, artikelweiser Vergleich der Nachnamen der identifizierten Akteur:innen (bzw. letzten Wörter in der Spalte [entity]) mit den Funktionen aus "actordupes". Der Schwellenwert, ab dem ein:e Akteur:in als Duplikat markiert wird, wird auf 0.8 festgelegt (Ausnahme: Namen aus nur einem Buchstaben werden nicht verglichen, sondern erhalten immer einen Ähnlichkeitsscore von 0).
+4. nicht direkt oder indirekt zitiert werden, also passive Akteur:innen sind [passive_actor]
+	- Prompt: "Bewerte, ob die Person '{entity}' im folgenden Text eine aktive oder passive Rolle einnimmt. Kontext: '{sentence}' Definitionen: Passiv heißt: - Es wird lediglich die Handlung der Person oder etwas, das ihr passiert ist, beschrieben - Die Person macht keine konkrete Aussage - Es handelt sich um eine historische Persönlichkeit (z. B. Robert Koch, Barbarossa) - Die Aussage der Person liegt mehrere Jahre zurück. Aktiv heißt: - Die Person kommt direkt über ein Zitat zu Wort - Die Person wird indirekt zitiert (erkennbar an Konjunktiv und paraphrasierten Aussagen) - Es werden Studien erwähnt, die eine als Wissenschaftler arbeitende Person verfasst hat. Antworte strukturiert mit \"aktiv\" oder \"passiv\". Wähle im Zweifelsfall immmer 'passiv'. Bitte gib das Ergebnis als Funktionsaufruf zurück."
+
+Die Entwicklung der Prompts basiert dabei auf folgender Codieranweisung (**bitte mit Blick auf die nachträgliche opt-out-Korrektur von Irrläufern beachten**):
+
+Für die Analyse sind lediglich Akteur:innen interessant, die in einem Artikel direkt in Form eines wörtlichen Zitats (i. d. R. erkennbar an Anführungszeichen, z. B. Meyer erklärt: "Es verhält sich mit dem Virus soundso.") oder indirekt, indem ihre Aussage vom:von der Autor:in des Artikels referiert wird (i. d. R. erkennbar an Konjunktivkonstruktionen, z. B. Laut Meyer sei es so und so), zu Wort kommen. Diejenigen Akteur:innen, die mindestens einmal wörtlich oder indirekt im Beitrag zitiert werden, werden als *aktive Akteur:innen* bezeichnet und bei ihrer ersten Erwähnung im Artikel hinsichtlich der nachfolgenden Variablen codiert. Diejenigen Akteur:innen, die hingegen nur (beiläufig) im Beitrag erwähnt werden, ohne sich selbst zu äußern, stellen *passive Akteur:innen* dar. Sie sind im Verlauf nur noch für die Analyse von Interaktionen (z. B. Adressierung) relevant. Die nachfolgenden Kategorien auf Akteur:innen- und Aussagenebene werden entsprechend für sie nicht erhoben. 
+Beispiele: Der Gesundheitsminister Spahn gerät zunehmend unter Druck. / Angela Merkel berät sich mit den Länderchefs. 
+
+***Ausnahme für Wissenschaftler:innen***: Berichtete Studienbefunde werden als indirekte Zitierung der beteiligten Wissenschaftler:innen gewertet. Diese Forscher:innen werden somit als aktive Akteur:innen codiert.
+
+**ACHTUNG**: Werden historische Persönlichkeiten zitiert oder enthält ein Beitrag (indirekte) Zitate, die Personen in einer weiter zurückliegenden Vergangenheit getätigt haben (sogenannte "Reminiszenzen"), wie etwa Äußerungen von Barbarossa, Ludwig Wittgenstein, Alan Turin, Robert Koch, Aristotels, Immanuel Kant oder dergleichen, werden diese Personen nicht als aktive, sondern als passive Akteur:innen gewertet. In der weiter zurückliegenden Vergangenheit getätigte Äußerungen werden nur dann als aktive Aussagen codiert, wenn sie noch einen Gegenwartsbezug aufweisen (z. B. eine Auszug aus einer Dankesrede von Gregg Semenza, in der er herausstellt, welche Bedeutung die Wissenschaft für ihn hat, wird drei Jahre später im Rahmen der Nobelpreisverleihung an ihn erneut zitiert).
+
+**ACHTUNG II**: Treten Sprachmodelle wie ChatGPT mit wörtlichen direkten oder indirekten Zitaten auf, sind sie dennoch NICHT als solche zu codieren, sondern - trotz der offenen Frage, ab wann diese Technologien ein Bewusstsein/eine Persönlichkeit aufweisen - als [misclassification] zu markieren. Dasselbe gilt auch für erkennbar durch KI erzeugte Zitate vermeintlich natürlicher Personen ("Fakes").
+
+**ACHTUNG III**: Bloße (politische) Ankündigungen von z. B. Gesetzesvorhaben oder Ermittlungen werden nicht als Aussagen gewertet (z. B. Markus Söder kündigte eine umfassende Untersuchung des Falles an.), es sei denn sie sind eindeutig als direktes oder indirektes Zitat formuliert (z. B. Markus Söder kündigte an: "Es werden umfassende Untersuchungen zu diesem Fall stattfinden." oder Markus Söder kündigte an, es werde umfassende Untersuchungen dieses Falles geben.). In Fällen, in denen es unklar bleibt, ob es sich um eine Zitierung des:der Akteur:in handelt oder nicht, wird "passiv" codiert.

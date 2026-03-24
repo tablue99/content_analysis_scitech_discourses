@@ -1,0 +1,13 @@
+
+###### **Interaktionstyp** [int_type]
+In dieser Variable wird in Anlehnung an das Vorgehen in der Social oder Discourse Network Analysis die Art der Verbindung (Interaktion) zwischen zwei Akteur:innen ermittelt. Allgemein betrachtet geht es dabei darum zu ermitteln, ob sich zwei Akteur:innen gegenseitig unterstützen/positiv gegenüberstehen (positive Verbindung) und sie somit eine "Koalition" bilden oder sich gegenseitig widersprechen/in Konflikt zueinander stehen (negative Verbindung) und somit eine Konkurrenz besteht. Darüber hinaus werden "Leistungs- oder Verantwortungsbeziehungen" unterschieden, die Interaktionen bezeichnen, in denen eine weder unterstützende noch konkurrierende, asymmetrische Beziehung zwischen einem:einer Akteur:in, der:die als Auftraggeber:in auftritt, und einem (passiven) Gegenüber, das den Auftrag empfängt und/oder eine Verantwortung zugewiesen bekommt, besteht.
+
+<p><div style="margin-left:20px;"><b>-1</b> Es besteht eine negative Verbindung zwischen den Akteur:innen.</br>
+Die Akteur:innen widersprechen sich gegenseitig, greifen sich an, stehen einander negativ gegenüber oder vertreten gegensätzliche Sichtweisen.</br>
+<i>Hinweis</i>: Akteur:innen, die in einer direkten Bewertungsinteraktion ([obj_persp] = 22) eine:n andere:n Akteur:in negativ bewerten ([eval_subj] = 2 & [eval] = -1), werden IMMER unter dieser Kategorie erfasst. Das geschieht in der Codier-App automatisch, es ist keine weitere manuelle Codierung erforderlich.</div></p>
+<p><div style="margin-left:20px;"><b>0</b> Es besteht eine Leistungs-/Verantwortungsbeziehung zwischen den Akteur:innen.</br>
+Ein:e Akteur:in beauftragt den:die andere Akteur:in etwas zu tun oder weist ihm:ihr eine Verantwortung (auch Schuld oder Leistung/Anerkennung) zu. Auch Konstellationen, in denen ein:e Akteur:in eine:n andere:n Akteur:in berät bzw. um Rat bittet, werden mit dieser Ausprägung versehen.</br>
+<i>Hinweis</i>: Akteur:innen, die in einer direkten Interaktion eine Handlungsaufforderung formulieren ([statement_type] = 311, 312, 321, 322), werden IMMER unter dieser Kategorie erfasst. Das geschieht in der Codier-App automatisch, es ist keine weitere manuelle Codierung erforderlich.</div></p>
+<p><div style="margin-left:20px;"><b>1</b> Es besteht eine positive Verbindung zwischen den Akteur:innen.</br>
+Die Akteur:innen unterstützen sich, stehen einander positiv gegenüber, teilen dieselbe Meinung/Ansicht.</br>
+<i>Hinweis</i>: Akteur:innen, die in einer direkten Bewertungsinteraktion ([obj_persp] = 22) eine:n andere:n Akteur:in positiv bewerten ([eval_subj] = 2 & [eval] = 1), werden IMMER unter dieser Kategorie erfasst. Das geschieht in der Codier-App automatisch, es ist keine weitere manuelle Codierung erforderlich.</div></p>
