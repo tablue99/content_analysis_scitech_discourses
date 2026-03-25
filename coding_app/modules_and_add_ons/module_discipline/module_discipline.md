@@ -53,7 +53,7 @@ Dazu zählen:</br>
 - Statistische Physik, Nichtlineare Dynamik, Komplexe Systeme, Weiche und fluide Materie, Biologische Physik
 - Optik, Quantenoptik und Physik der Atome, Moleküle und Plasmen
 - Teilchen, Kerne und Felder (z. B. Kern- und Elementarteilchenphysik, Quantenmechanik, Relativitätstheorie, Felder)
-- Astrophysik und Astronomie</br>
+- Astrophysik und Astronomie</br></div></p>
 <p><div style="margin-left:20px;"><b>8</b> Mathematik</div></p>
 <p><div style="margin-left:20px;"><b>9</b> Geowissenschaften</br>
 Dazu zählen:</br>
