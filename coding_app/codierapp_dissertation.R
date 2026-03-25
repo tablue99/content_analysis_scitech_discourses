@@ -1,6 +1,4 @@
 ## Core: Shiny-App zur Codierung von strukturellen Merkmalen von medialen Wissenschafts- und Technologiediskursen (journalistische Texte)
-## TODOs:
-  # codierte Variablen mit IDs in Rds-Datensatz schreiben
 
 library(shiny)
 library(shinyjs)

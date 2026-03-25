@@ -16,6 +16,6 @@ The following steps will help you set up the required coding environment to make
 
 Due to exclusive application by German coders, the app is currently only available in German language. However, if you are able to understand the German instructions/options, you can also code texts in other languages by using this app as the text output is dependent on the data that has been uploaded by you. Yet, if prior to using this app, you'd also like to use the provided Python script(s) for the NER identification of actors, you have to apply it to German texts or change the model from flair/ner-ger to an appropriate model for your textual data.
 
-##### Outlook
+#### Outlook
 
 We are currently testing to hand over some of the manual coding to LLMs (or other automated tools), e. g., gender (<a href="https://namsor.app/" target="_blank">Namsor</a>), societal area or statement types. If these tools are ready for usage, I will provide detailed instructions to implement them in the current coding workflow. 
