@@ -20,6 +20,8 @@ Gegenbeispiel: Im selben Diskurs kommen die beiden Akteur:innen erneut in einem 
 
 <p><div style="margin-left:20px;"><b>1</b> Es liegt eine Interaktion zwischen den Akteur:innen vor.</div></p>
 <p><div style="margin-left:20px;"><b>0</b> Es liegt KEINE Interaktion zwischen den Akteur:innen vor. DIE CODIERUNG IST an dieser Stelle BEENDET.</div></p>
+
+*Hinweis*: Akteur:innen, die gemeinsam an einem Projekt arbeiten (z. B. Studienautor:innen einer Studie) werden immer als interagierende Akteur:innen erfasst und entsprechend codiert (siehe [int_type]).
 	
 *Hinweis*: Gegebenenfalls kann es hilfreich sein, bereits an dieser Stelle den Interaktionstyp (siehe [int_type]) mitzudenken. Ist es vergleichsweise einfach möglich, diesen auf Basis des Textes (nicht dadurch, was aufgrund der gesellschaftlichen Rollen oder durch Vor-/Kontextwissen logisch erscheint!) festzulegen, liegt mutmaßlich auch eine echte indirekte Interaktion zwischen den beiden Akteur:innen vor.
 
