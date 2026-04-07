@@ -1,3 +1,6 @@
+[!IMPORTANT]
+The line numbers refer to the raw version of the app without any further modules and add-ons (except for the [socarea_others] add-on).
+
 ### Module: Introduction
 
 This module enables to code the attributes used to introduce/describe a specific actor at their first mention in a journalistic article. It can be integrated to the core coding process and app as follows:

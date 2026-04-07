@@ -1,3 +1,6 @@
+[!IMPORTANT]
+The line numbers refer to the raw version of the app without any further modules and add-ons (except for the [socarea_others] add-on).
+
 ### Module: Scientific discipline
 
 This module enables the identification of scientific disciplines for scientific actors ([socarea] = 100). It can be integrated to the core coding process and app as follows:
