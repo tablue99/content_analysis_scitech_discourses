@@ -1,4 +1,4 @@
-### Module: Scientific discipline
+### Module: Introduction
 
 This module enables to code the attributes used to introduce/describe a specific actor at their first mention in a journalistic article. It can be integrated to the core coding process and app as follows:
 
