@@ -10,7 +10,7 @@ Aktuell stehen folgende Module bereit:
 - Wissenschaftliche Abhängigkeit **[scidepend]**: Variable, die Akteur:innen der Kategorien "130 = außeruniversitäre Forschung" und "140 = wissenschaftliche Verbände" auf Basis ihrer Affiliation mit Blick auf die Gebundenheit an bzw. Unabhängigkeit von Partialinteressen in ihrer Forschungstätigekeit unterscheidet.
 - Nicht-wissenschaftliche politische Beratung **[poladvice]**: Variable, mit deren Hilfe Mitglieder in nicht-wissenschaftlichen, politischen Beratungsgremien von klassischeren, politisch administrativen Akteur:innen in Behörden, Ministerien usw. unterschieden werden können.
 - Expert:innenstatus **[expert]**: mehrere Indikatorvariablen, mit denen in Kombination mit [socarea] ermittelt werden kann, ob und um welche Art von Expert:innen es sich bei einzelnen Akteur:innen handelt.
-- Bezeichnung **[intro]**: Variable, mit der festgehalten wird, wie ein:e Akteur:in in einen Artikel eingeführt, d. h. den Leser:innen vorgestellt wird.
+- <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/76cbc7c8b9cc1639377d777ccade8cc996e7b51d/coding_app/modules_and_add_ons/module_intro" target="_blank"> Bezeichnung</a> <b>[intro]</b>: Variable, mit der festgehalten wird, wie ein:e Akteur:in in einen Artikel eingeführt, d. h. den Leser:innen vorgestellt wird.
 - Geographischer Bezug von Aussagen **[statement_local]**: Variable, in der festgehalten werden kann, auf welche geographischen/räumlichen Kontexte sich eine Aussage bezieht (z. B. national, international).
 
 *Ergänzung um diskurstypspezifische Module*

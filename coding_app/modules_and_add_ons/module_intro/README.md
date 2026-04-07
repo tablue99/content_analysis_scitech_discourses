@@ -9,7 +9,7 @@ This module enables to code the attributes used to introduce/describe a specific
 2. Add the variable name "intro" to "variables" (line 24) and "actor_variables" (line 27). 
 3. Adjust the "save_actors" function as follows:
 	1. Add "intro" to "inputs" in line 49
-	2. Make sure that multiple selected answers are saved in one column of the data frame by including from line 77 on:
+	2. Make sure that multiple selected answers are saved in one column of the data frame by including the following code from line 77 on:
 	```{r}
 	else if(variable == "intro"){
       full_dataset[full_dataset$entity_id == actor$entity_id, variable] <<- paste(inputs[[variable]], collapse = ", ")

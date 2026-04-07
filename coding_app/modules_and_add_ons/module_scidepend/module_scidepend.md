@@ -1,0 +1,10 @@
+
+###### **Abhängigkeit der wissenschaftlichen Forschung** [scidepend]
+*Hinweis*: Diese Variable wird nur codiert, wenn in der Kategorie [socarea] eine der Ausprägungen "130 = außeruniversitäre Forschung" oder "140 = wissenschaftliche Verbände / Kollektive" vergeben wurde.
+
+Mit dieser Kategorie wird unabhängige Forschung, wie sie von Wissenschaftler:innen an universitären und außeruniversitären Forschungseinrichtungen ohne Absatz- oder ähnlichen Eigeninteressen betrieben wird, von an Partialinteressen gebundener, also abhängiger Forschung in Unternehmen, NGOs oder anderen Partialinteressensvertretungen (z. B. Thinktanks, Entwickler:innen-Netzwerke wie das Silicon Valley) unterschieden.\
+Akteur:innen, die in einem entsprechenden Partialinteressensverbund ausschließlich forschend tätig sind und daher als Wissenschaftler:innen codiert wurden, z. B. Informatiker:innen in der Forschungsabteilung von DeepMind/X von Google oder bei OpenAI (z. B. Ilya Sutskever, Geoffrey Hinton), sind nach dieser Definition in ihrer Forschung abhängig und werden daher mit "1 = an Partialinteressen gebundende Forschung" codiert.\
+**ACHTUNG**: Wissenschaftler:innen in Forschungsverbünden ohne Absatzinteressen (z. B. "klassische" außeruniversitäre Forschung bei Fraunhofer, Leibniz-Instituten, Helmholtz-Zentren) oder in Gesellschaften und Thinktanks, die keine Eigeninteressen verfolgen, sind gemäß ihrer Affiliation als unabhängige Wissenschaftler:innen zu codieren. Forschungsfinanzierungen oder ähnliche Zuwendungen von Dritten, die u. U. Eigeninteressen verfolgen, werden bei dieser Codierung außenvorgelassen, da normative Standards der wissenschaftlichen Forschung auch bei finanzieller Förderung eine Enthaltung der Geldgeber:innen in der Forschung ("objektive Forschung") vorschreiben.
+
+<p><div style="margin-left:20px;"><b>0</b> unabhängige Forschung</div></p>
+<p><div style="margin-left:20px;"><b>1</b> an Partialinteressen gebundende Forschung</div></p>
