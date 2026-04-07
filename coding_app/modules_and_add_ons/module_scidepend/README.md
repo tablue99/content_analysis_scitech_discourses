@@ -45,7 +45,7 @@ conditionalPanel(
                                    )
 ```
 9. Make sure that the coding of the variable is required before moving on by adding ```|
-       (empty_inputs(input$scidepend) == "" & input$socarea_wiss %in% c(130, 140))``` before the closing bracket in line 1149 and line 1186.
+       (empty_inputs(input$scidepend) == "" & empty_inputs(input$socarea_wiss) %in% c(130, 140))``` before the closing bracket in line 1149 and line 1186.
 10. Again: Include "scidepend_input" in the coding when 130 or 140 is selected as [socarea] by adding a comma at the end of line 1574 (behind "socarea_wiss_input") and including the following code in the next line before the closing bracket:
 ```{r}
 conditionalPanel(
