@@ -1,5 +1,5 @@
-[!IMPORTANT]
-The line numbers refer to the raw version of the app without any further modules and add-ons (except for the [socarea_others] add-on).
+>[!IMPORTANT]
+>The line numbers refer to the raw version of the app without any further modules and add-ons (except for the [socarea_others] add-on).
 
 ### Module: Introduction
 
