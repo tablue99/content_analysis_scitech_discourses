@@ -14,7 +14,6 @@ This module enables to distinguish between administrative actors who are part of
 		if(inputs["socarea_oberkat"] == 200 & inputs["socarea_pol"] != 220){
 		  inputs["poladvice"] <- NA
 		}
-		}
 		```
 	3. Include "poladvice" in line 77
 4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions:
@@ -41,7 +40,7 @@ This module enables to distinguish between administrative actors who are part of
 				fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_poladvice/module_poladvice.md")))
 			  ),
 	```
-8. Include "poladvice_input" when 220 chosen in [socarea] by adding a comma at the end of line 1084 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
+8. Include "poladvice_input" when 220 is chosen in [socarea] by adding a comma at the end of line 1084 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
 	```{r}
 	conditionalPanel(
 									   condition = "input.socarea_pol == 220",
