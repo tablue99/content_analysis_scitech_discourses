@@ -1,9 +1,9 @@
 >[!IMPORTANT]
 >The line numbers refer to the raw version of the app without any further modules and add-ons (except for the [socarea_others] add-on).
 
-### Add-On: Further specification of other societal areas
+### Add-On: Further specification of political legislative (party orientation)
 
-This add-on enables to further describe the societal area of peripheral actors that would otherwise be coded with "400 = sonstiger Bereich". It is per default integrated in the core coding process and can be removed as follows:
+This add-on enables to further describe the political orientation (party membership) of political legislative actors that would otherwise be coded with "230 = politische Legislative". It can be integrated in the core coding process as follows:
 
 1. Open the markdown file "socarea" in the folder "source_codebuch" and exchange "Durch das Hinzufügen eines oder mehrere länderspezifischer Add-Ons (z. B. <a href="linkzusocarea_polleg_ger" target="_blank"> [socarea_polleg_ger]</a>, <a href="linkzusocarea_polleg_uk" target="_blank"> [socarea_polleg_uk]</a>) können sie, wenn möglich, hinsichtlich ihrer Zugehörigkeit zu einzelnen Parteien unterschieden werden. Ist eine verallgemeinerte, länderübergreifende Codierung der Parteien erwünscht, kann auf das <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/d729974ca89922f0d636302e5bb5d77cebc89ef7/coding_app/modules_and_add_ons/add_on_socarea_polleg" target="_blank"> Add-On [socarea_polleg]</a> zurückgegriffen werden." with the text provided in the markdown file "add_on_socarea_polleg". Then include the provided categories by copying and pasting them starting at line 35.
 2. Include "socarea_polleg" in line 24 and 27.
@@ -11,7 +11,7 @@ This add-on enables to further describe the societal area of peripheral actors t
 	1. Include "socarea_polleg" in line 49 and 54.
 	2. Replace line 56 to 58 with:
 		```{r}
-		if(inputs["socarea_oberkat"] == 200 & !inputs["socarea_pol"] == 230){
+		if(inputs["socarea_oberkat"] == 200 & inputs["socarea_pol"] != 230){
 		inputs[c("socarea_wiss", "socarea_polleg", "socarea_iv", "socarea_ivzo", "socarea_ivko", "socarea_sonst")] <- NA
 		}
 		```
