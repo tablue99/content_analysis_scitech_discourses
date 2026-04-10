@@ -48,7 +48,7 @@ This add-on enables to further specify whether national actors are active on nat
                                  actlocal_national_input
                                ),
 	```
-8. Include ```| (empty_inputs(input$actlocal_national) == "" & input$actlocal == 1)``` in line 1150 and 1187 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
+8. Include ```| (empty_inputs(input$actlocal_national) == "" & empty_inputs(input$actlocal) == 1)``` in line 1150 and 1187 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
 9. Again: Include "actlocal_national_input" in the coding when 1 is selected in [actlocal] by including the following code in line 1594:
 	```{r}
 	conditionalPanel(

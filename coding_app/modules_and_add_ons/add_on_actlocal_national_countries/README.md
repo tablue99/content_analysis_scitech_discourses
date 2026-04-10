@@ -48,7 +48,7 @@ This add-on enables to further localise national actors regarding their affiliat
                                  actlocal_national_countries_input
                                ),
 	```
-8. Include ```| (empty_inputs(input$actlocal_national_countries) == "" & input$actlocal == 1)``` in line 1144 and 1181 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
+8. Include ```| (empty_inputs(input$actlocal_national_countries) == "" & empty_inputs(input$actlocal) == 1)``` in line 1144 and 1181 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
 9. Again: Include "actlocal_national_countries_input" in the coding when 1 is selected in [actlocal] by including the following code in line 1588:
 	```{r}
 	conditionalPanel(
