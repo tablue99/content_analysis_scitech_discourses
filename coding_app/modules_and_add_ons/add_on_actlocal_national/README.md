@@ -25,15 +25,15 @@ This add-on enables to further specify whether national actors are active on nat
 		)})
 		full_dataset[full_dataset$entity_id == actor$entity_id, "actlocal"] <<- as.numeric(inputs["actlocal"])
 		```
-4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions by including the following code in line 368 and 399:
+4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions by including the following code in line 367 and 397:
 	```{r}
 	updateRadioButtons(session = session, inputId = "actlocal_national", selected = actor_codes[["actlocal_national"]][[1]])
 	```
-5. Adjust the "reset_inputs" function by including the following code in line 430:
+5. Adjust the "reset_inputs" function by including the following code in line 427:
 	```{r}
 	updateRadioButtons(session = session, inputId = "actlocal_national", selected = character(0))
 	```
-6. Define an input element for the added subcategories by including this code starting in line 611:
+6. Define an input element for the added subcategories by including this code starting in line 608:
 	```{r}
 	actlocal_national_input <- radioButtons("actlocal_national", label = "Nationale Ebene",
                                         choices = c("Föderal" = 11,
@@ -41,19 +41,19 @@ This add-on enables to further specify whether national actors are active on nat
                                                     "Nicht spezifiziert/national" = 1),
                                         selected = character(0))
 	```
-7. Include "actlocal_national_input" when 1 chosen in [actlocal] by including the following code in line 1101:
+7. Include "actlocal_national_input" when 1 chosen in [actlocal] by including the following code in line 1098:
 	```{r}
 	conditionalPanel(
                                  condition = "input.actlocal == 1",
                                  actlocal_national_input
                                ),
 	```
-8. Include ``` | (empty_inputs(input$actlocal_national) == "" & input$actlocal == 1)``` in line 1154 and 1191 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
-9. Again: Include "actlocal_national_input" in the coding when 1 is selected in [actlocal] by including the following code in line 1597:
+8. Include ```| (empty_inputs(input$actlocal_national) == "" & input$actlocal == 1)``` in line 1150 and 1187 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
+9. Again: Include "actlocal_national_input" in the coding when 1 is selected in [actlocal] by including the following code in line 1594:
 	```{r}
 	conditionalPanel(
                                  condition = "input.actlocal == 1",
                                  actlocal_national_input
                                ),
 	```
-	Repeat this step in line 1709 and 2216.
+	Repeat this step in line 1706 and 2213.

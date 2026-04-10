@@ -17,42 +17,42 @@ This module enables to distinguish between administrative actors who are part of
 		```
 	3. Include "poladvice" in line 77
 4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions:
-	1. Add "poladvice" in line 340 and 371
-	2. Include the following code in line 356 and 387:
+	1. Add "poladvice" in line 340 and 370
+	2. Include the following code in line 357 and 387:
 		```{r}
 		updateCheckboxInput(session = session, inputId = "poladvice", value = as.logical(actor_codes[["poladvice"]][[1]]))
 		```
-5. Adjust the "reset_inputs" function by including the following code in line 418:
+5. Adjust the "reset_inputs" function by including the following code in line 417:
 	```{r}
 	updateCheckboxInput(session = session, inputId = "poladvice", value = FALSE)
 	```
-6. Define the input element for the added variable by including this code starting in line 597:
+6. Define the input element for the added variable by including this code starting in line 599:
 	```{r}
 	poladvice_input <- wellPanel(style = "background-color:#ffffff;",
 								 p("Politische Beratung"),
 								 checkboxInput("poladvice", label = "Akteur:in gehört zu einem Gremium, das politische Beratung betreibt.",
 											   value = FALSE))
 	```
-7. Insert the coding instruction in line 820:
+7. Insert the coding instruction in line 813:
 	```{r}
 	tabPanel(
 				title = "Politische Beratung",
 				fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_poladvice/module_poladvice.md")))
 			  ),
 	```
-8. Include "poladvice_input" when 220 is chosen in [socarea] by adding a comma at the end of line 1084 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
+8. Include "poladvice_input" when 220 is chosen in [socarea] by adding a comma at the end of line 1077 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
 	```{r}
 	conditionalPanel(
 									   condition = "input.socarea_pol == 220",
 									   poladvice_input
 									 )
 	```
-9. Again: Include "poladvice_input" in the coding when 220 is selected as [socarea] by adding a comma at the end of line 1580 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
+9. Again: Include "poladvice_input" in the coding when 220 is selected as [socarea] by adding a comma at the end of line 1571 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
 	```{r}
 	conditionalPanel(
 									   condition = "input.socarea_pol == 220",
 									   poladvice_input
 									 )
 	```
-	Repeat this step in line 1692 and 2199.
-10. Make sure that "poladvice" is batched as logical in the "codebogen" by adding "poladvice" in line 1758.
+	Repeat this step in line 1683 and 2190.
+10. Make sure that "poladvice" is batched as logical in the "codebogen" by adding "poladvice" in line 1749.
