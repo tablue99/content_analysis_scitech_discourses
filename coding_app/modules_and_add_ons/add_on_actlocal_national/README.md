@@ -6,7 +6,7 @@
 This add-on enables to further specify whether national actors are active on national, Federal State or local level. It can be integrated to the core coding process and app as follows:
 
 1. Open the Markdown file "actlocal.md" from the folder "source_codebuch" and make the following changes:
-	1. Delete the sentence "Zusätzlich steht ein <a href="linkzuactlocal_national" target="_blank"> Add-On [actlocal_national]</a> bereit, mit dem die nationale Ebene weiter auf die föderale oder lokale/kommunale Ebene heruntergebrochen werden kann, um bspw. Lokalpolitiker:innen von Bundespolitiker:innen zu unterscheiden." in line 4.
+	1. Delete the sentence "Zusätzlich steht ein <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/6953674b2898f8864cc83ef06d4ee92886ec1cbb/coding_app/modules_and_add_ons/add_on_actlocal_national" target="_blank"> Add-On [actlocal_national]</a> bereit, mit dem die nationale Ebene weiter auf die föderale oder lokale/kommunale Ebene heruntergebrochen werden kann, um bspw. Lokalpolitiker:innen von Bundespolitiker:innen zu unterscheiden." in line 4.
 	2. Exchange line 9 for the text from the markdown file "add_on_actlocal_national.md".
 2. Add the variable name "actlocal_national" to "variables" (line 24) and "actor_variables" (line 27). 
 3. Adjust the "save_actors" function as follows:
@@ -49,11 +49,11 @@ This add-on enables to further specify whether national actors are active on nat
                                ),
 	```
 8. Include ``` | (empty_inputs(input$actlocal_national) == "" & input$actlocal == 1)``` in line 1154 and 1191 before the closing bracket to make sure that the new subcategories have to be coded when 1 is selected in "actlocal".
-9. Again: Include "actlocal_national_input" in the coding when 1 is selected in [actlocal] by including the following code in line 1595:
+9. Again: Include "actlocal_national_input" in the coding when 1 is selected in [actlocal] by including the following code in line 1597:
 	```{r}
 	conditionalPanel(
                                  condition = "input.actlocal == 1",
                                  actlocal_national_input
                                ),
 	```
-	Repeat this step in line 1707 and 2214.
+	Repeat this step in line 1709 and 2216.
