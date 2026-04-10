@@ -11,9 +11,9 @@ This module enables to distinguish between administrative actors who are part of
 	1. Add "poladvice" to "inputs" in line 49
 	2. Make sure that the variable only contains values if [socarea] = 220 by including the following code from line 71 on:
 		```{r}
-		if(inputs["socarea_oberkat"] == 200 & inputs["socarea_pol"] != 220){
-		  inputs["poladvice"] <- NA
-		}
+		if(inputs["socarea_oberkat"] == 200 & inputs["socarea_pol"] != 220 | inputs["socarea_oberkat"] != 200){
+      inputs["poladvice"] <- NA
+    }
 		```
 	3. Include "poladvice" in line 77
 4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions:
