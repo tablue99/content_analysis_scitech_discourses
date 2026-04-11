@@ -1705,9 +1705,10 @@ server <- function(input, output, session){
           show_alert(title = "Codierung vollständig",
                      text = "Alle Akteur:innen in diesem Datensatz wurden codiert.\nDie App kann nun geschlossen werden.")
         }
-        # befinden sich noch uncodierte Akteur:innen im Datensatz wird der Akteursindex erhöht 
+        # befinden sich noch uncodierte Akteur:innen im Datensatz wird der Akteursindex erhöht und der Interaktionsindex zurückgesetzt
         else {
           rv$index_actor <- rv$index_actor + 1
+          rv$index_interaction <- 0
         }
       }
     }
