@@ -46,7 +46,7 @@ Ein:e passive:r Akteur:in im Text wird bewertet.</div></p>
 Der vollständige Name des:der bewertenden Akteur:in wird in das Freitextfeld eingetragen.</div></p>
 <p><div style="margin-left:120px;"><b>23</b> Wissenschaft</br>
 Universitäre und außeruniversitäre Forschungseinrichtungen, Forschende, "die" Wissenschaft allgemein, wissenschaftliche Verbände oder forschende Abteilungen wissenschaftlich administrativer Einrichtungen bzw. deren Handlungen (z. B. Entscheidungen) werden beurteilt. Ist bei einer Organisation der wissenschaftlichen Administration unklar, ob der Forschungs- oder Administrationsbereich in die Verantwortung genommen wird, wird im Zweifel immer diese Kategorie "23 = Wissenschaft" ausgewählt.</br>
-<b>ACHTUNG</b>: Wird nur der lehrende Bereich an Universitäten adressiert, ist "29 = Sonstige" (bzw., wenn das <a href="linkzueval_subj_others" target="_blank"> Add-On [eval_subj_others]</a> integriert ist, die Unterausprägung "Bildung") zu codieren.</div></p>
+<b>ACHTUNG</b>: Wird nur der lehrende Bereich an Universitäten adressiert, ist "29 = Sonstige" (bzw., wenn das <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/fe3fb7be0fc8b03b4884ad7437045d5eadeec858/coding_app/modules_and_add_ons/add_on_eval_subj_others" target="_blank"> Add-On [eval_subj_others]</a> integriert ist, die Unterausprägung "Bildung") zu codieren.</div></p>
 <p><div style="margin-left:120px;"><b>24</b> Politik</br>
 Regierungen, Regierungsinstitutionen und politische Administrationen (z. B. Ministerien, Behörden), Parlamente, politische Beratungsgremien (sofern nicht nur "forschende" Expert:innen adressiert werden, diese würden unter "23 = Wissenschaft codiert), Legislative, Opposition, Parteien oder "die" Politik allgemein bzw. deren Handlungen/Entscheidungen werden bewertet.</div></p>
 <p><div style="margin-left:120px;"><b>25</b> Judikative (Recht)</br>
@@ -58,7 +58,7 @@ Bewertungen von (Handlungen von) zivilgesellschaftlichen Interessensverbänden, 
 <p><div style="margin-left:120px;"><b>28</b> (allgemeine) Öffentlichkeit</br>
 Kollektive Bewertungen von unspezifischen, d. h. nicht namentlich genannte Individual- oder Privatpersonen, "der" Öffentlichkeit oder Allgemeinheit.</div></p>
 <p><div style="margin-left:120px;"><b>29</b> Sonstige</br>
-Urteile über Kollektive, die sich keiner der zuvor genannten Kategorien zuordnen lassen (z. B. Medien, Bildung, Kultur). Falls eine Spezifizierung erwünscht ist, können an dieser Stelle weitere Unterausprägungen aus dem <a href="linkzueval_subj_others" target="_blank"> Add-On [eval_subj_others]</a> hinzugefügt werden.</div></p>
+Urteile über Kollektive, die sich keiner der zuvor genannten Kategorien zuordnen lassen (z. B. Medien, Bildung, Kultur). Falls eine Spezifizierung erwünscht ist, können an dieser Stelle weitere Unterausprägungen aus dem <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/fe3fb7be0fc8b03b4884ad7437045d5eadeec858/coding_app/modules_and_add_ons/add_on_eval_subj_others" target="_blank"> Add-On [eval_subj_others]</a> hinzugefügt werden.</div></p>
 <p><div style="margin-left:120px;"><b>99</b> nicht erkennbar </div></p>
 <p><div style="margin-left:80px;"><b> Bewertung [eval]</b></br>
 In dieser Unterkategorie wird erfasst, ob eine positive, negative oder ambivalente (unsichere) Bewertung des Diskursgegenstands und seiner gesellschaftlichen Kontexte oder des:der Akteur:in vorgenommen wird.</div></p>

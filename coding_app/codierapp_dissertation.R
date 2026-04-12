@@ -1252,7 +1252,7 @@ server <- function(input, output, session){
                                  ),
                                statement_leaning_input,
                                conditionalPanel(
-                                 condition = "input.eval == 0",
+                                 condition = "(input.eval_subj_actor == 21 || input.eval_subj_actor == 22) && input.eval == 0",
                                  wellPanel(
                                    style = "background-color:#ffffff;",
                                    int_type_input
@@ -1335,7 +1335,7 @@ server <- function(input, output, session){
        (input$dir_int == "" & empty_inputs(input$dir_int_filter) == 11) |
        (input$dir_int_other == "" & empty_inputs(input$dir_int_filter) == 12) |
        (empty_inputs(input$int_type) == "" & input$dir_int_identification) |
-       (empty_inputs(input$int_type) == "" & empty_inputs(input$eval) == 0)) {
+       (empty_inputs(input$int_type) == "" & empty_inputs(input$eval) == 0 & empty_inputs(input$eval_subj_actor) %in% c(21, 22))) {
       show_alert(title = "Fehler", text = "Bitte zuerst alle Felder ausfüllen, um mit der nächsten Aussage fortzufahren.", type = "error")
     }
     else {
