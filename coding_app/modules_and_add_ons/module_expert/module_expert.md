@@ -1,0 +1,80 @@
+
+###### **Modul: Expert:innenstatus** [expert]
+<i>Hinweis</i>: Um die automatische Festlegung des Expert:innenstatus inhaltlich robuster zu machen, wird zusätzlich die Einbindung des <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/555e1e787610754cf97363dff072dca645474306/coding_app/modules_and_add_ons/module_scidepend" target="_blank">Moduls [scidepend]</a> empfohlen.
+
+Mit diesem Modul kann über mehrere Variablen herausgefunden werden, ob und wenn ja um welche Art von Expert:in es sich bei einem:einer Akteur:in, die zu einem bestimmten Diskursgegenstand zu Wort kommt, handelt. Es handelt sich hierbei um eine Variable, die schrittweise, über logische Abfragen und Verknüfungen codiert wird und im Wesentlichen auf Expertise-Konzepten von <a href="https://www.degruyterbrill.com/document/doi/10.7208/9780226113623/html" target="_blank">Collins/Evans (2007)</a> und <a href="https://doi.org/10.1007/BF00993988" target="_blank">Weinstein (1993)</a> beruht (tlw. unter Berücksichtigung konstruktivistischer Positionen von <a href="https://www.nomos-shop.de/de/p/experten-im-journalismus-gr-978-3-8487-0110-0" target="_blank">Nölleke (2013)</a>). Voraussetzung dafür, dass die folgenden Variablen sinnvoll und vollständig codiert werden können, ist, dass der:die Akteur:in sich innerhalb des Artikels mindestens einmal zum Diskursgegenstand äußert ([relevant_quote] = 1).
+
+<h6><u> Bezeichnung als Expert:in [exp_call]</u></h6>
+In dieser Kategorie soll die Frage beantwortet werden, ob der:die Akteur:in wörtlich als Expert:in oder mit einem Synomym (z. B. Koryphäe, Spezialist:in, Sachkundige:r, Ass, Kenner:in) bezeichnet wird. Die Kategorie ist eng auszulegen, sodass nur eindeutige Benennungen und Zuschreibungen codiert werden. Grenzfälle werden mit "0 = Akteur:in wird nicht als Expert:in bezeichnet" versehen und durchlaufen anschließend automatisch einen Prozess zur indirekten Ermittlung des Expert:innenstatus. Beschreibungen wie "x ist eine der meistzitierten Stimmen/erfolgreichsten ...", die eindeutig anzeigen, dass der:die Akteur:in eine hohe Reputation genießt bzw. große Erfolge bei seiner Tätigkeit/in seinem Fachgebiet vorweisen kann, zählen ebenfalls als eindeutige Expert:innenbezeichnungen.
+
+<p><div style="margin-left:20px;"><b>1</b> Akteur:in wird als Expert:in bezeichnet</div></p>
+<p><div style="margin-left:20px;"><b>0</b> Akteur:in wird nicht als Expert:in bezeichnet</div></p>
+	
+**ACHTUNG**: Die Bezeichnungen „Fachmann:frau“ und „Meister:in“ können je nach Kontext entweder als Synonym für „Expert:in“ eingesetzt sein oder eine alternative Umschreibung eines erlernten Berufes darstellen. Hier ist im Einzelfall zu prüfen, welche Bedeutung dem Synonym zuzuschreiben ist und daran anknüpfend die passende Ausprägung zu wählen.
+
+*Hinweis*: In manchen journalistischen Texten werden Expert:innen zunächst nicht als solche eingeführt, jedoch im Verlauf in generischen Aussagen wie "In einer Sache sind sich jedoch alle Expert:innen einig …" eindeutig als solche bezeichnet. Diese sind bei der Codierung oftmals nicht unmittelbar über die Namensnennungen erkennbar. Es ist daher vor der Codierung mit "0 = Akteur:in wird nicht als Expert:in bezeichnet" im gesamten Text (kann über den Button „Kompletter Text“ angezeigt werden) sorgfältig zu prüfen, ob ein:e Akteur:in nachträglich als Expert:in beschrieben wird. Als Hilfestellung werden in der Codier-App die Wortteile "Expert", "Spezialist", "Fachmann/-frau/-leute", "Sachkundige" und "Koryphäe" farblich hervorgehoben, wenn sie in einem Artikel verwendet werden. Werden die Wortteile identifiziert, ist jedoch nochmals sorgfältig zu überprüfen, ob die Bezeichnung den:die zu codierende Akteur:in einschließt oder nicht.
+	
+<h6><u> Kein:e Insider:in [no_insider]</u></h6>
+*Hinweis*: Diese Variable wird nur codiert, wenn in der Kategorie [exp_call] die Ausprägung "0 = Akteur:in wird nicht als Expert:in bezeichnet" vergeben wurde.
+
+Diese Kategorie schließt sogenannte Insider:innen, die Spezialwissen verfügen, das sich nur auf die eigene Institution/Organisation bezieht und nicht potenziell öffentlich zugänglich ist, als potenzielle Expert:innen aus. Demzufolge soll anhand der Aussagen des:der Akteur:in die Frage beantwortet werden, ob er:sie ausschließlich über "Interna" spricht. Solche "Interna" sind Organisationsgeheimnisse, die sich durch ihre hohe Spezifizität auszeichnen und nicht auf andere Kontexte übertragbar sind, z. B. betriebliche Workflows,  Personalia, spezifische interne Programme und deren Programmcodes usw. Nicht als "Internas" gelten Aussagen über organisationseigene Anwendung bestimmter Methoden, Tools, Technologien usw., die sich potenziell auf andere Organisationen/Akteur:innen übertragen lassen oder von externen Akteur:innen beobachtt werden können. In Zweifelsfällen ist ein:e Akteur:in mit "1 = Akteur:in ist kein:e Insider:in" zu codieren.
+
+<p><div style="margin-left:20px;"><b>1</b> Akteur:in ist KEIN:E Insider:in</div></p>
+<p><div style="margin-left:20px;"><b>0</b> Akteur:in ist Insider:in</div></p>
+	
+<h6><u> Expertise / Domäne [exp_domain]</u></h6>
+*Hinweis*: Diese Variable wird nur codiert, wenn entweder in der Kategorie [exp_call] die Ausprägung "1 = Akteur:in wird als Expert:in bezeichnet" oder in Kategorie [no_insider] "1 = Akteur:in ist KEIN:E Insider:in" vergeben wurde.
+
+In dieser Kategorie soll ermittelt werden, inwiefern sich der:die Akteur:in mit dem Diskursgegenstand befasst. Hierfür wird anhand der institutionellen Zugehörigkeit und seiner Aussagen auf seine konkrete Tätigkeit in Bezug auf diesen Gegenstand (seine:ihre "Expert:innendomäne") geschlossen.</br>
+Lässt sich aus dieser Kombination nicht ableiten, ob bzw. inwiefern ein:e Akteur:in eine Form der Expertise zum Diskursgegenstand aufweist oder scheint keine der vorgegebenen Kategorien passend, wird "99 = nicht erkennbar / Sonstiges" codiert.
+
+**ACHTUNG**: Es ist wichtig, dass nicht nur die Berufsbeschreibung oder Affiliation zur Bestimmung dieser Variable herangezogen wird, sondern immer sichergestellt wird, dass sich die Person im Rahmen dieser Tätigkeit auch mit dem Diskursgegenstand befasst. Ein:e Wissenschaftler:in, die Meerestiere erforscht, aber im KI-Diskurs zu Wort kommt, weil sie selbst ChatGPT nutzt, um Paper zu schreiben, ist trotz ihrer forschende Tätigkeit nicht mit der Erforschung von KI (des Diskursgegenstands) befasst, sondern wendet ihn lediglich an bzw. schildert ihre eigenen Erfahrungen. Er:sie wäre dementsprechend mit "3 = Anwendung / (eigene) Erfahrung" und NICHT mit "2 = Erforschung" zu codieren.
+
+<p><div style="margin-left:20px;"><b>1</b> (Produkt-)Entwicklung</br>
+Akteur:innen, die den Diskursgegenstand selbst direkt entwickeln oder ihn in anderen Produkten implementieren/integrieren, werden unter dieser Kategorie erfasst. Es handelt sich also um eine praktische und/oder technische Auseinandersetzung mit dem Ziel konkrete anwendbare Einzelprodukte hervorzubringen.</br>
+Beispiele für solche Akteur:innen könnten unter anderem Software-Entwickler:innen oder Medikamentenhersteller:innen in Firmen sein. Auch Akteur:innen in Start-Ups oder Thinktanks sind oftmals solchen (innovativen) Einzelprodukten verschrieben.</br>
+<b>ACHTUNG</b>: Der Begriff "Produkt" ist in diesem Fall weit auszulegen - auch Ideen, Pläne oder Konzepte können in diesem Sinne Produkte sein, sofern sie zu einer konkreten Anwendung gebracht werden (sollen).</div></p>
+<p><div style="margin-left:20px;"><b>2</b> Erforschung</br>
+In dieser Kategorie werden Akteur:innen erfasst, die sich mit der Erforschung eines Diskursgegenstandes auseinandersetzen. Es geht hier also vorwiegend um die Erzeugung von neuem Wissen zu diesem Gegenstand, das nicht an konkrete Produkte gebunden ist. Bei diesem Wissen kann es sich sowohl um rein theoretisches Wissen handeln als auch Wissen, das sich in (Einzel-/experimentellen) Produkten materialisert.</br>
+Im Unterschied zu "1 = Entwicklung" ist eine (massenhafte) Verbreitung oder Anwendung dieser entstandenen Materialien jedoch nicht das primäre Ziel der Auseinandersetzung. Im Wesentlichen handelt es sich somit um eine wissenschaftliche Auseinandersetzung mit dem Gegenstand um des Wissens oder der Wahrheit Willen.</br>
+Beispiele für solche Akteur:innen sind unter anderem Wissenschaftler:innen, die zum Beispiel an Universitäten, Grundlagenforschung zu einem Diskursgegenstand betreiben.</div></p>
+<p><div style="margin-left:20px;"><b>3</b> Anwendung / (eigene) Erfahrung</br>
+Akteur:innen, die einen Diskursgegenstand in ihrem Alltag - sowohl beruflich als auch privat - selbst einsetzen, vom Einsatz des Diskursgegenstandes durch andere betroffen sind oder Erfahrungen anderer, die diesen Gegenstand anwenden/davon betroffen sind, teilen, sind in dieser Kategorie zu erfassen. Es handelt sich also um eine anekdotische und/oder persönliche Auseinandersetzung mit den Gegenstand des Diskurses.</br>
+Das können unter anderem Privatpersonen sein, die z. B. durch bauliche Maßnahmen, die mit einem Diskursgegenstand in Zusammenhang stehen oder (negativen) Folgen (z. B. gesundheitliche Beeinträchtigungen) betroffen sind oder aber auch von positiven Wirkungen profitieren (z. B. Erleichterungen im Alltag). Ebenso könnten Unternehmer:innen ihre Erfahrungen mit dem Einsatz eines bestimmten Diskursgegenstandes teilen oder aber auch Politker:innen von ihren persönlichen Erfahrungen damit berichten.</div></p>
+<p><div style="margin-left:20px;"><b>4</b> Management / Organisation</br>
+Ist ein:e Akteur:in professionell mit organisatorischen Grundvoraussetzungen für die Verbreitung, Entwicklung, Erforschung oder Anwendung des Diskursgegenstandes befasst, wird sie mit diesem Code versehen. Ihre Auseinandersetzung mit dem Diskursgegenstand ist entsprechend auf einer vor- oder nachgestellten administrativen Ebene zu verorten, auf der die infrastrukturellen Voraussetzungen für anderweitige Auseinandersetzungen mit dem Diskursgegenstand geschaffen werden.</br>
+Ein:e solche:r Akteur:in könnte beispielsweise ein:e Vertriebler:in in einem Unternehmen, das den Diskursgegenstand produziert, sein oder ein Mitglied der PR-Abteilung eines solchen Unternehmens oder einer Forschungseinrichtung, in der der Gegenstand beforscht wird. Auch Forschungsförderer:innen könnten zum Beispiel zu dieser Kategorie gezählt werden.</div></p>
+<p><div style="margin-left:20px;"><b>5</b> Regulation</br>
+Liegt die hauptsächliche Auseinandersetzung mit dem Diskursgegenstand eines:einer Akteur:in auf seinen rechtlichen und/oder ethischen Rahmenbedingungen, wird er:sie in dieser Kategorie codiert.</br>
+Beispiele für solche Akteur:innen sind unter anderem Politiker:innen, die Gesetze hinsichtlich des Einsatzes und der Hervorbringung des Diskursgegenstandes aushandeln, Richter:innen, die bestehendes Recht auslegen und auf konkreten Einzelfälle anwenden oder aber auch beispielweise Verbraucherschützer:innen oder ähnliche Stakeholder, die auf regulatorische Lücken und "Fehler" hinweisen.</br>
+<b>ACHTUNG</b>: Im Gegensatz zu "6 = Folgen / Verortung" geht es in dieser Kategorie um die Befassung mit konkreten regulatorischen Rahmenbedingungen (i. d. R. Gesetze, Verordnungen, (institutionalisierte) Selbstkontrolle) oder ethische Bedenken/soziale Folgen, die mit Bezug auf solche Regulationen geäußert werden (z. B. Forderungen nach bessere Regulierung). Es geht explizit NICHT um Folgen, ethische Fragen usw., die abseits von Regulationen verhandelt werden oder im Rahmen einer regulierten Anwendung - intendiert oder unintendiert - entstehen.</div></p>
+<p><div style="margin-left:20px;"><b>6</b> Folgen / Verortung</br>
+Setzen sich Akteur:innen hauptsächlich mit den Folgen eines Einsatzes und/oder der (Weiter-)Entwicklung des Diskursgegenstandes auseinander oder versuchen diesen (ideell, konzeptionell) zu verorten (z. B. philosophische Auseinandersetzung), wird diese Kategorie gewählt. Auch Auseinandersetzungen mit ethischen oder moralischen Aspekten, die keine direkte Regulierung (siehe auch "5 = Regulation") betreffen, fallen in diese Kategorie.</br>
+Ein:e solche Akteur:in könnte beispielsweise ein:e Sozialwissenschaftler:in sein, der:die sich mit der sozialen Wirkung des Diskursgegenstandes oder seiner öffentlichen Wahrnehmung befasst. Ebenso würde ein:e Philosoph:in, der:die sich mit seiner Ontologie befasst, oder aber ein:e Kulturschaffende:r (z. B. Autor:in, Künstler:in), der:die künstlerisch das Wesen und die Folgen des Gegenstandes darstellt und interpretiert, zu dieser Kategorie gezählt werden.</div></p>
+<p><div style="margin-left:20px;"><b>7</b> vertiefte Recherche</br>
+Akteur:innen, die professionell, z. B. im Rahmen einer journalistischen Tätigkeit, oder sehr intensiv und systematisch Informationen zum Diskursgegenstand zusammentragen und verinnerlichen, werden in dieser Kategorie erfasst.</br>
+Neben den bereits genannten Journalist:innen könnten das beispielsweise auch Privatpersonen sein, die sich hobbymäßig sehr intensiv mit dem Diskursgegenstand beschäftigen (z. B. der klischeehafte Eisenbahn-Fan), oder Mitglieder von Freizeitvereinen und -verbänden, die sich rund um diesen Gegenstand bilden.</div></p>
+<p><div style="margin-left:20px;"><b>99</b> nicht erkennbar / Sonstiges</div></p>
+	
+<h6><u> Festlegung des Expert:innenstatus [expert]</u></h6>
+
+Um aus diesen sowie vorherigen Indikatorvariablen ([socarea], ggfs. [scidepend] und [poladvice]) nun den Expert:innenstatus abzuleiten, werden im Hintergrund in der Codierapp logische Verknüpfungen vorgenommen. Diese sind nach der Definition der jeweiligen Ausprägung in *kursiv* angegeben.
+
+<p><div style="margin-left:20px;"><b>1</b> performative:r Expert:in</br>
+Akteur:innen, die eine bestimmte Fähigkeit regelgerecht und unter Berücksichtigung geltender Normen so umsetzen, dass sie ihre Sachdomäne voranbringen.</br>
+<i>[relevant_quote] = 1 und [socarea] != 100, 110, 120, 130 & [scidepend] = 0, 140 & [scidepend] = 0, 200, 210, 220, 230, 310er, 330, 410, 460 und [exp_call] = 1 oder [exp_call] = 0 & [no_insider] = 1 und [exp_domain] = 1, 2, 6</i></div></p>
+<p><div style="margin-left:20px;"><b>2</b> epistemische:r Expert:in</br>
+Akteur:innen, die mit wissenschaftlichen Methoden und unter Berücksichtigung wissenschaftlicher Standards (neues) Wissen erzeugen oder überprüfen und so zur Weiterentwicklung ihrer Sachdomäne beitragen.</br>
+<i>[relevant_quote] = 1 und [socarea] = 100, 110, 120, 130 & [scidepend] = 0, 140 & [scidepend] = 0 und [exp_call] = 1 oder [exp_call] = 0 & [no_insider] = 1 und [exp_domain] = 1, 2</i></div></p>
+<p><div style="margin-left:20px;"><b>3</b> anekdotische Evidenz (Lai:innenwissen)</br>
+<i>[relevant_quote] = 1 und [exp_call] = 0 & [no_insider] = 1 oder [exp_call] = 1 und [exp_domain] = 3</i></div></p>
+<p><div style="margin-left:20px;"><b>4</b> administrative:r Expert:in</br>
+<i>[relevant_quote] = 1 und [socarea] = 120, 220, 300 ohne 330 und [exp_call] = 1 oder [exp_call] = 0 & [no_insider] = 1 und [exp_domain] = 4</i></div></p>
+<p><div style="margin-left:20px;"><b>5</b> politische:r Expert:in</br>
+<i>[relevant_quote] = 1 und [socarea] = 200, 210, 220, 230 und [exp_call] = 1 oder [exp_call] = 0 & [no_insider] = 1 und [exp_domain] = 5</i></div></p>
+<p><div style="margin-left:20px;"><b>6</b> evaluierende:r Expert:in</br>
+Akteur:innen, die durch Recherche und Austausch und ohne eigene Praxiserfahrung befähigt sind, moralische und gesellschaftliche Abwägungen vorzunehmen und Urteile, die die Sachdomäne betreffen, zu fällen.</br>
+<i>[relevant_quote] = 1 und [socarea] = 100, 110, 120, 130 & [scidepend] = 0, 140 & [scidepend] = 0, ggfs. 220 + [poladvice] = 1, 310er, 460, 410 und [exp_call] = 1 oder [exp_call] = 0 & [no_insider] = 1 und [exp_domain] = 5, 6</i></div></p>
+<p><div style="margin-left:20px;"><b>7</b> referenzierende:r Expert:in</br>
+<i>[relevant_quote] = 1 und [socarea] = 470, 300er und [exp_call] = 1 oder [exp_call] = 0 & [no_insider] = 1 und [exp_domain] = 7</i></div></p>
+<p><div style="margin-left:20px;"><b>8</b> kein:e Expert:in</div></p>
