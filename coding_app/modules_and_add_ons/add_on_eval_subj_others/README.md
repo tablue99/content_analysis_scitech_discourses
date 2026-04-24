@@ -11,9 +11,9 @@ This add-on enables to further specify other collective actors (institutions, or
 	1. Add "eval_subj_others" to "inputs" in line 134, 139, 142, 145, 151 and 154  of the "save_statements" function.
 	2. Include the following plausibility check in line 160:
 		```{r}
-		if(inputs["statement_type_oberkat"] == 2 & inputs["eval_subj_oberkat"] == 2 & inputs["eval_subj_actor"] == 29){
-		inputs["eval_subj_others"] <- NA
-		}
+		if(inputs["statement_type_oberkat"] == 2 & inputs["obj_persp"] == 2 & inputs["eval_subj_oberkat"] == 2 & inputs["eval_subj_actor"] != 29){
+      inputs["eval_subj_others"] <- NA
+    }
 		```
 	3. Exchange line 185 to 187 for the following code:
 		```{r}
