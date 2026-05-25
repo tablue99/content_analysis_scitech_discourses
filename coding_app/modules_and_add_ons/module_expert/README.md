@@ -78,7 +78,7 @@ This module contains three variables that determine together with [socarea] and 
 	,
           tabPanel(
             title = "Expert:innenstatus",
-            fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_expert/module_expert.md")))
+            fluidRow(column(8, includeMarkdown("source_codebuch/module_expert.md")))
           )
 	```
 11. Include the new inputs in conditional panels that are dependent on [relevant_quote] = TRUE by adding a comma at the end of line 1153 (behind "relevant_quote_input") and typing copying the following code in the next line before the closing bracket:

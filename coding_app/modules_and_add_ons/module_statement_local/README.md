@@ -27,7 +27,7 @@ This module allows for the coding of the geographical scope and/or references of
 	```{r}
 	tabPanel(
             title = "geographischer Bezug",
-            fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_statement_local/module_statement_local.md")))
+            fluidRow(column(8, includeMarkdown("source_codebuch/module_statement_local.md")))
           ),
 	```
 7. Include the new inputs in the conditional panel for relevant statements by including ```statement_local_input,``` in line 1267.

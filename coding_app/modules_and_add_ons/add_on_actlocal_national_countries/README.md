@@ -13,7 +13,7 @@ This add-on enables to further localise national actors regarding their affiliat
 1. Include "<p><div style="margin-left:20px;><b>100</b> Anderes Land</div></p>" in line 10 of the "actlocal.md" file.
 2. Add ```"anderes Land" = 100,``` in line 589 of the coding app to enable a selection of "100 = Anderes Land" at the same level as the other values.
 
-**Option B: Collecting specific continents and countries as subcategories
+**Option B: Collecting specific continents and countries as subcategories**
 1. Insert the text from the markdown file "add_on_actlocal_national_countries" in line 10 of the "actlocal.md" file.
 2. Decide whether you'd like to code continents or countries (of course you can combine both levels by defining further input elements and embed them in conditionalPanels. If you need help with that, don't hestitate to contact the author of this coding manual/app since, at the moment, there is no distinct manual provided for that.). In this example, the values "other country", "Germany" and "USA" shall be included in the coding procedure. Make sure that the subcategories are situated at the desired level by adjusting the "margin-left" parameter, e. g., in this case we want "100", "10108" and "10223" on the same level, so all have "margin-left" parameters have to be set to 40px. Copy the chosen categories to "actlocal" (starting in line 14).
 2. Add the variable name "actlocal_national_countries" to "variables" (line 24) and "actor_variables" (line 27). 

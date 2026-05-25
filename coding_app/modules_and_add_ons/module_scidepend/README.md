@@ -34,7 +34,7 @@ This module enables to distinguish between scientific actors who are bound to ce
 	```{r}
 	tabPanel(
 				title = "Wissenschaftliche (Un)Abhängigkeit",
-				fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_scidepend/module_scidepend.md")))
+				fluidRow(column(8, includeMarkdown("source_codebuch/module_scidepend.md")))
 			  ),
 	```
 8. Include "scidepend_input" when 130 or 140 are chosen in [socarea] by adding a comma at the end of line 1078 (behind "socarea_wiss_input") and including the following code in the next line before the closing bracket:

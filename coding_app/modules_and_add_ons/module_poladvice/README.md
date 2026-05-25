@@ -12,8 +12,8 @@ This module enables to distinguish between administrative actors who are part of
 	2. Make sure that the variable only contains values if [socarea] = 220 by including the following code from line 71 on:
 		```{r}
 		if(inputs["socarea_oberkat"] == 200 & inputs["socarea_pol"] != 220 | inputs["socarea_oberkat"] != 200){
-      inputs["poladvice"] <- NA
-    }
+		inputs["poladvice"] <- NA
+		}
 		```
 	3. Include "poladvice" in line 77
 4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions:
@@ -37,7 +37,7 @@ This module enables to distinguish between administrative actors who are part of
 	```{r}
 	tabPanel(
 				title = "Politische Beratung",
-				fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_poladvice/module_poladvice.md")))
+				fluidRow(column(8, includeMarkdown("source_codebuch/module_poladvice.md")))
 			  ),
 	```
 8. Include "poladvice_input" when 220 is chosen in [socarea] by adding a comma at the end of line 1077 (behind "socarea_pol_input") and including the following code in the next line before the closing bracket:
