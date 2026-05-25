@@ -46,7 +46,7 @@ This module enables the identification of scientific disciplines for scientific 
 	```{r}
 	tabPanel(
 				title = "Wissenschaftliche Disziplin",
-				fluidRow(column(8, includeMarkdown("modules_and_add_ons/module_discipline/module_discipline.md")))
+				fluidRow(column(8, includeMarkdown("source_codebuch/module_discipline.md")))
 			  ),
 	```
 8. Include "discipline_input" in the conditional panel that is dependent on the selection of "100 = Wissenschaft" in [socarea_oberkat] by adding a comma at the end of line 1091 (behind "socarea_wiss_input") and typing "discipline_input" in the next line before the closing bracket.
