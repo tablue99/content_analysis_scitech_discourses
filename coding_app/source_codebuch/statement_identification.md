@@ -25,7 +25,9 @@ Es werden ausschließlich **wörtliche oder indirekte Aussagen der Akteur:innen*
 
 **ACHTUNG**: Wird eine Aussage von mehreren Akteur:innen gemeinsam getätigt, wird sie für jede:n dieser Akteur:innen einmal codiert. Es wird also von unterschiedlichen Akteur:innen ausgehend mehrfach die gleiche Aussage codiert. Beispiel: "Sowohl x als auch y sind der Meinung, dass die inhaltsanalytische Erforschung von Wissenschafts- und Technologiediskursen nicht ausreichend theoretisch fundiert und dadurch chaotisch ist."
 
-**ACHTUNG**: Eine Aussage kann nicht mehrere Absätze umfassen. Mit jedem neuen Absatz wird, falls vorhanden, eine neue Aussage codiert.
+**ACHTUNG**: Eine Aussage kann nicht mehrere Absätze umfassen. Mit jedem neuen Absatz wird, falls vorhanden, eine neue Aussage codiert. Aufgrund der Darstellung in der App ist dies oftmals schwierig zu beurteilen, daher sollen im Zweifel lieber zu viele als zu wenige Aussagen codiert werden.
+
+*Hinweis*: Werden verschiedene irrelevante Aussagen (d. h. Aussagen, die sich nicht auf den Diskurs(gegenstand) oder seine Akteur:innen beziehen) direkt nacheinander geäußert, so können diese, auch wenn sich der Aussagentyp oder die -tendenz ändert, gemeinsam als eine Aussage erfasst und anschließend herausgefiltert werden. In langen Interviews werden nur diejenigen Passagen codiert, die sich auf den Diskurs(gegenstand) beziehen. Alle anderen Textabschnitte und darin getätigte Aussagen können ignoriert werden. 
 
 ###### **Aussagen-ID** [statement_id]
 Jede im Freitextfeld erfasste Aussage erhält automatisch eine einzigartige Aussagen-ID, die sich aus der [entity_id] des:der Expert:in und der Reihenfolge ihrer Identifikation ergibt (z. B. erste Aussage des:der Akteur:in 100401 = 100401**1**. Eine manuelle Codierung ist nicht erforderlich.

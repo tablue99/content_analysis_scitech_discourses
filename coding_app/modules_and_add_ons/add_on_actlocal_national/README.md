@@ -19,11 +19,11 @@ This add-on enables to further specify whether national actors are active on nat
 		```
 	3. Write the subcategories to "actlocal" by including the following code in line 95:
 		```{r}
-		inputs["actlocal"] <- with(as.list(inputs), {case_when(
+		inputs["actlocal_detail"] <- with(as.list(inputs), {case_when(
 		!is.na(actlocal_national) ~ actlocal_national,
 		is.na(actlocal_national) ~ actlocal
 		)})
-		full_dataset[full_dataset$entity_id == actor$entity_id, "actlocal"] <<- as.numeric(inputs["actlocal"])
+		full_dataset[full_dataset$entity_id == actor$entity_id, "actlocal_detail"] <<- as.numeric(inputs["actlocal_detail"])
 		```
 4. Adjust the "set_to_last_actor_value" and "set_to_actor_values" functions by including the following code in line 367 and 397:
 	```{r}

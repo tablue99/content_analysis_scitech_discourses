@@ -95,8 +95,8 @@ save_actors <- function(actor, inputs){
 #### Identifizierte Aussagen und deren Codierung
 save_statements <- function(statement, inputs, statements_dataset){
   # zunächst wird überprüft, ob bereits eine RDS-Datei mit codierten Aussagen vorliegt
-  if(file.exists(file.path(file_paths_new_datasets, "coded_statements.Rds"))){
-    full_statement_dataset <- readRDS(file.path(file_paths_new_datasets, "coded_statements.Rds"))
+  if(file.exists(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))){
+    full_statement_dataset <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   }
   # wenn noch kein Datensatz vorliegt, wird der reaktive Statements-Datensatz herangezogen, um diesen Datensatz erstmalig anzulegen
   else {
@@ -201,14 +201,14 @@ save_statements <- function(statement, inputs, statements_dataset){
   # leere Zellen werden durch NA ersetzt
   full_statement_dataset[full_statement_dataset == ""] <- NA
   
-  saveRDS(full_statement_dataset, file.path(file_paths_new_datasets, "coded_statements.Rds"))
+  saveRDS(full_statement_dataset, file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
 }
 
 #### Identifizierte indirekte Interaktionen und deren Codierung
 save_interactions <- function(interaction, inputs, interactions_dataset, new_interactions){
   # zunächst wird überprüft, ob bereits eine RDS-Datei mit codierten Interaktionen vorliegt
-  if(file.exists(file.path(file_paths_new_datasets, "coded_interactions.Rds"))){
-    full_interaction_dataset <- readRDS(file.path(file_paths_new_datasets, "coded_interactions.Rds"))
+  if(file.exists(file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))){
+    full_interaction_dataset <- readRDS(file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   }
   # wenn noch kein Datensatz vorliegt, wird der reaktive Statements-Datensatz herangezogen, um diesen Datensatz erstmalig anzulegen
   else {
@@ -261,7 +261,7 @@ save_interactions <- function(interaction, inputs, interactions_dataset, new_int
     }
   }
   # Vor dem Export wird der Datensatz noch mit den Codierungen der direkten Interaktionen ergänzt
-  coded_statements <- readRDS(file.path(file_paths_new_datasets, "coded_statements.Rds"))
+  coded_statements <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   full_interaction_dataset <- full_interaction_dataset |> 
     mutate(join_id = if_else(!is.na(batch_id), batch_id, int_id)) |> 
     left_join(coded_statements |> 
@@ -275,14 +275,14 @@ save_interactions <- function(interaction, inputs, interactions_dataset, new_int
     mutate(int_type = if_else(is.na(int_type), int_type_stat, int_type)) |> 
     select(-c(join_id, int_type_stat))
   
-  saveRDS(full_interaction_dataset, file.path(file_paths_new_datasets, "coded_interactions.Rds"))
+  saveRDS(full_interaction_dataset, file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
 }
 
 #### Neue direkte Interaktionen bei Akteur:innen, die ausschließlich mit passiven Akteur:innen interagieren
 save_new_direct_interactions <- function(interactions_dataset, new_interactions){
   # zunächst wird überprüft, ob bereits eine RDS-Datei mit codierten Interaktionen vorliegt
-  if(file.exists(file.path(file_paths_new_datasets, "coded_interactions.Rds"))){
-    full_interaction_dataset <- readRDS(file.path(file_paths_new_datasets, "coded_interactions.Rds"))
+  if(file.exists(file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))){
+    full_interaction_dataset <- readRDS(file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   }
   # wenn noch kein Datensatz vorliegt, wird der reaktive Statements-Datensatz herangezogen, um diesen Datensatz erstmalig anzulegen
   else {
@@ -304,7 +304,7 @@ save_new_direct_interactions <- function(interactions_dataset, new_interactions)
     }
   }
   # Vor dem Export wird der Datensatz noch mit den Codierungen der direkten Interaktionen ergänzt
-  coded_statements <- readRDS(file.path(file_paths_new_datasets, "coded_statements.Rds"))
+  coded_statements <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   full_interaction_dataset <- full_interaction_dataset |> 
     mutate(join_id = if_else(!is.na(batch_id), batch_id, int_id)) |> 
     left_join(coded_statements |> 
@@ -318,7 +318,7 @@ save_new_direct_interactions <- function(interactions_dataset, new_interactions)
     mutate(int_type = if_else(is.na(int_type), int_type_stat, int_type)) |> 
     select(-c(join_id, int_type_stat))
   
-  saveRDS(full_interaction_dataset, file.path(file_paths_new_datasets, "coded_interactions.Rds"))
+  saveRDS(full_interaction_dataset, file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
 }
 
 #### vollständig codierte Akteur:innen
@@ -390,15 +390,15 @@ set_to_actor_values <- function(session = shiny::getDefaultReactiveDomain(), act
 
 ## Funktion, um gespeicherte Aussagen/neue direkte Interaktionen aus den Datensätzen zu löschen, falls die Aussagen- und Interaktionscodierung durch einen Klick auf "back_to_actor" neu gestartet wird
 reset_saved_text_inputs <- function(actor){
-  coded_statements <- readRDS(file.path(file_paths_new_datasets, "coded_statements.Rds"))
+  coded_statements <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   coded_statements <- coded_statements |> 
     filter(entity_id != actor)
-  coded_interactions <- readRDS(file.path(file_paths_new_datasets, "coded_interactions.Rds"))
+  coded_interactions <- readRDS(file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
   coded_interactions <- coded_interactions |> 
     filter(entity_id != actor)
   
-  saveRDS(coded_statements, file.path(file_paths_new_datasets, "coded_statements.Rds"))
-  saveRDS(coded_interactions, file.path(file_paths_new_datasets, "coded_interactions.Rds"))
+  saveRDS(coded_statements, file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
+  saveRDS(coded_interactions, file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
 }
 
 # Zurücksetzen der Inputs auf Standardwerte
@@ -442,8 +442,8 @@ reset_inputs <- function(session = shiny::getDefaultReactiveDomain()){
 
 ### Funktion, um bereits im Zuge der Aussagencodierung codierte (direkte) Interaktionen zwischen aktiven Akteur:innen aus dem Datensatz herauszufiltern
 mark_direct_interactions <- function(interaction_dataset){
-  if(file.exists(file.path(file_paths_new_datasets, "coded_statements.Rds"))){
-    coded_statements <- readRDS(file.path(file_paths_new_datasets, "coded_statements.Rds"))
+  if(file.exists(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))){
+    coded_statements <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
     interactions <- interaction_dataset
     coded_int_ids <- coded_statements |> 
       pivot_longer(cols = c(dir_int_eval, dir_int_actclaim, dir_int),
@@ -637,7 +637,7 @@ obj_persp_input <- radioButtons("obj_persp", label = "Perspektive (\"Objektivit�
 eval_subj_oberkat_input <- radioButtons("eval_subj_oberkat", label = "Bewertungssubjekt",
                                                   choices = c("Diskursgegenstand" = 1,
                                                               "Andere:r Akteur:in" = 2,
-                                                              "nicht erkennbar" = 99),
+                                                              "Sonstiges/nicht erkennbar" = 99),
                                                   selected = character(0))
 
 eval_subj_actor_input <- radioButtons("eval_subj_actor", label = "Bewertete:r Akeur:in",
@@ -1457,13 +1457,11 @@ server <- function(input, output, session){
     insertUI(selector = "#coder_info", where = "afterEnd",
              ui = tags$div(id = "statement_identification",
                            statement_input,
-                           actionButton("submit_statement", "Ok", class = "btn-info btn-lg", width = "40%"),
-                           br(),
                            tags$div(style = "line-height: 0.5;",
                                     br(),
                                     splitLayout(
-                                      cellWidths = c("40%", "60%"),
-                                      actionButton("last_statement", "Letzte Aussage", class = "btn-secondary btn-lg", width = "100%"),
+                                      cellWidths = c("60%", "40%"),
+                                      actionButton("submit_statement", "Ok", class = "btn-info btn-lg", width = "100%"),
                                       actionButton("back_to_actor", "Zum:zur Akteur:in", class = "btn-secondary btn-lg", width = "100%"))),
                            hr(),
                            actionButton("end_statement_coding", "Keine weiteren Aussagen", class = "btn-danger btn-lg", width = "100%")))
