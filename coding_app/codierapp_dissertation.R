@@ -624,8 +624,8 @@ statement_type_actclaim_input <- radioButtons("statement_type_actclaim", label =
                                               selected = character(0))
 
 valclaim_input <- radioButtons("valclaim", label = "Geltungsanspruch",
-                               choices = c("Allgemeingültigkeit" = 11,
-                                           "persönliche Wahrnehmung/Erfahrung" = 12,
+                               choices = c("Allgemeingültigkeit/sichere Aussage" = 11,
+                                           "persönliche Wahrnehmung/Erfahrung/unsichere Aussage" = 12,
                                            "formallogische Gültigkeit" = 13),
                                selected = character(0))
 
@@ -649,7 +649,7 @@ eval_subj_actor_input <- radioButtons("eval_subj_actor", label = "Bewertete:r Ak
                                                   "Wirtschaft" = 26,
                                                   "zivilgesellschaftliche Organisationen" = 27,
                                                   "Öffentlichkeit/Allgemeinheit" = 28,
-                                                  "Sonstige" = 29),
+                                                  "Sonstige/nicht erkennbar" = 29),
                                       selected = character(0))
 
 eval_input <- radioButtons("eval", label = "Bewertung",
@@ -674,7 +674,7 @@ addressee_input <- radioButtons("addressee", label = "Adressat",
                                             "Wirtschaft" = 6,
                                             "zivilgesellschaftliche Organisationen" = 7,
                                             "Öffentlichkeit/Allgemeinheit" = 8,
-                                            "Sonstige" = 9),
+                                            "Sonstige/nicht erkennbar" = 9),
                                 selected = character(0))
 
 # Aussagentendenz
