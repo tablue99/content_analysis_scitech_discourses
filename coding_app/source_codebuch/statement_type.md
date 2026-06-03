@@ -57,9 +57,9 @@ Es wird ein Urteil über (die Handlungen von) wirtschaftliche Kollektive, also k
 Bewertungen von (Handlungen von) zivilgesellschaftlichen Interessensverbänden, die Kollektivgüter oder wertorientierte Partialinteressen vertreten (z. B. NGOs, Kirchen, Gewerkschaften).</div></p>
 <p><div style="margin-left:120px;"><b>28</b> (allgemeine) Öffentlichkeit</br>
 Kollektive Bewertungen von unspezifischen, d. h. nicht namentlich genannte Individual- oder Privatpersonen, "der" Öffentlichkeit oder Allgemeinheit.</div></p>
-<p><div style="margin-left:120px;"><b>29</b> Sonstige</br>
+<p><div style="margin-left:120px;"><b>29</b> Sonstige/nicht erkennbar</br>
 Urteile über Kollektive, die sich keiner der zuvor genannten Kategorien zuordnen lassen (z. B. Medien, Bildung, Kultur). Falls eine Spezifizierung erwünscht ist, können an dieser Stelle weitere Unterausprägungen aus dem <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/fe3fb7be0fc8b03b4884ad7437045d5eadeec858/coding_app/modules_and_add_ons/add_on_eval_subj_others" target="_blank"> Add-On [eval_subj_others]</a> hinzugefügt werden.</div></p>
-<p><div style="margin-left:120px;"><b>99</b> Sonstige/nicht erkennbar<br>
+<p><div style="margin-left:100px;"><b>99</b> Sonstige/nicht erkennbar<br>
 Diese Kategorie wird immer dann ausgwählt, wenn der:die Akteur:in eine Bewertung vornimmt, die sich nicht unmittelbar auf den Diskursgegenstand oder (die Handlungen anderer) Diskursakteur:innen bezieht, z. B. wenn  er:sie sich über den Umgang mit seiner:ihrer Person beschwert oder eine Rahmenbedingung, die nicht unmittelbar dem eigentlichen Diskursgegenstand geschuldet ist (z. B. gesellschaftliche Stereotype), bewertet/anprangert. </div></p>
 <p><div style="margin-left:120px;"><i> Hinweis</i>: Werden mehrere Subjekte zugleich bewertet, so ist immer die Bewertung des Diskursgegenstandes zu priorisieren. Wird also unter anderem der Diskursgegenstand bewertet, ist "1 = Der Diskursgegenstand wird beurteilt" auszuwählen. Liegt eine solche Bewertung nicht vor und ist die Aussage dennoch relevant, ist die Aussage mehrfach (1x pro Bewertungssubjekt) zu codieren.</div></p>
 <p><div style="margin-left:80px;"><b> Bewertung [eval]</b></br>
@@ -94,6 +94,7 @@ Beispiele: "Die EU muss klare Regeln festlegen.", "Wir brauchen ein eindeutiges 
 <p><div style="margin-left:40px;"><b>32</b> indirekte Handlungsaufforderungen</br>
 Diese Kategorie umfasst implizit, "weich" oder zurückhaltend formulierte Handlungsaufforderungen. Diese erscheinen weniger dringlich als direkte Handlungsaufforderungen, zielen aber trotzdem auf die Beeinflussung eines Verhaltens/einer Handlung ab. Anstelle von Imperativen oder Modalverben wird beispielsweise der Konjunktiv II (sollten, müssten, könnten) verwendet.</br>
 Statt klarer, expliziter Handlunganweisungen regen solche Aussagen eher zum Nachdenken, Abwägen oder zur Reflexion an. Sie äußern sich oft in Form von Wünschen ("es wäre wünschenswert, dass..."), vorsichtigen Empfehlungen oder Ratschlägen ("es könnte in Betracht gezogen werden"), indirekten Verantwortungszuweisungen ("x steht hier besonders in der Pflicht"), rhetorischen Fragen oder allgemein gehaltenen Vorschlägen. Auch Warnungen, die auf mögliche negative Konsequenzen hinweisen, zählen zu dieser Kategorie, sofern sie implizit eine Handlung nahelegen.</br>
+Auch die Betonung einer Dringlichkeit durch Formulierungen wie "x betont die Dringlichkeit, ...", "x unterstreicht die Dringlichkeit, ...", zählen als indirekte Handlungsaufforderungen, ebenso wie "Wenn-dann"-Formulierungen, die im Wenn-Teil eine Handlung nahelegen (z. B. "wenn wir jetzt handeln, können wir den Eisbären noch vor dem Aussterben retten."). Wird eine Dringlichkeit jedoch direkt formuliert durch Äußerungen wie "Es ist dringend, dass ...", so ist "31 = direkte Handlungsaufforderung" zu codieren.</br>
 Die Intention einer solchen Äußerung ist es, Handlungsbereitschaft zu fördern, ohne dabei direkt normative und unmittelbar verpflichtende Forderungen zu formulieren.</br>
 Beispiele: "Es wäre hilfreich, wenn die Politik ein Gesetz beschließen würde.", "Hier liegt eine große Verantwortung bei x.", "Sollten wir nicht mehr in die Forschung investieren?", usw.</div></p>
 <p><div style="margin-left:60px;"><b> Adressat [addressee]</b></br>
@@ -124,7 +125,7 @@ Beispiel: "Der Nabu ist dafür verantwortlich, dass..."</div></p>
 <p><div style="margin-left:80px;"><b>318</b> bzw. <b>328</b> (allgemeine) Öffentlichkeit</br>
 Handlungsanforderungen, die an Kollektive aus unspezifischen, d. h. nicht namentlich genannten Individual- oder Privatpersonen bestehen, gerichtet sind, z. B. "die" Öffentlichkeit oder Allgemeinheit.</br>
 Beispiele: "Die Bevölkerung muss nun wachsam sein", "Wir alle sind gefordert!"</div></p>
-<p><div style="margin-left:80px;"><b>319</b> bzw. <b>329</b> Sonstige</br>
+<p><div style="margin-left:80px;"><b>319</b> bzw. <b>329</b> Sonstige/nicht erkennbar</br>
 Handlungsaufforderungen an Kollektive, die sich keiner der zuvor genannten Kategorien zuordnen lassen (z. B. Medien, Bildung, Kultur). Falls eine Spezifizierung erwünscht ist, können an dieser Stelle weitere Unterausprägungen aus dem <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/485d4f1bc33e1f447cca8150e7ef4f4745c5f545/coding_app/modules_and_add_ons/add_on_addressee_others" target="_blank"> Add-On [addressee_others]</a> hinzugefügt werden.</div></p>
 <p><div style="margin-left:20px;"><b>4</b> Selbstverpflichtungen (Kommissiva)</br>
 Eine Selbstverpflichtung liegt vor, wenn ein:e Akteur:in eine Absichtserklärung, eine Ankündigung oder ein Versprechen formuliert, mit dem er:sie sich selbst und/oder seine:ihre Institution verbindlich auf ein zukünftiges Handeln festlegt.</br>

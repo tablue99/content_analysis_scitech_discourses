@@ -580,7 +580,7 @@ socarea_sonst_input <- radioButtons("socarea_sonst", label = "Sonstiger Bereich"
                                              "Gesundheit" = 430,
                                              "öffentliche Sicherheit" = 440,
                                              "Bildung" = 450,
-                                             "Kultur" = 460,
+                                             "Kultur & Sport" = 460,
                                              "Journalismus" = 470,
                                              "Nicht spezifiziert" = 400),
                                  selected = character(0))
@@ -2088,6 +2088,9 @@ server <- function(input, output, session){
     if(rv$index_actor > 1){
       # der Akteursindex wird um 1 verringert
       rv$index_actor <- rv$index_actor - 1
+      # eventuell bereits gespeicherte Aussagen und Statements werden mit der reset_save_text-Funktion gelöscht
+      actor_id <- draw_actor()[["entity_id"]]
+      reset_saved_text_inputs(actor_id)
     }
     else {
       # Wenn bereits der:die erste Akteur:in angezeigt wird, erscheint eine Fehlermeldung

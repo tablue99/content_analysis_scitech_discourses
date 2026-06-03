@@ -38,7 +38,8 @@ This add-on enables to further describe the political orientation (party members
                                                  "Liberale Partei" = 234,
                                                  "Rechtspopulistische Partei" = 235,
                                                  "Linke Partei" = 236,
-                                                 "Sonstige Partei" = 237))
+                                                 "Sonstige Partei" = 237),
+									 selected = character(0))
 	```
 7. Add a comma in line 1081 (behind "socarea_pol_input") and insert the follwing code before the closing bracket:
 	```{r}

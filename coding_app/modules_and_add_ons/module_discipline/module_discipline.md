@@ -70,7 +70,7 @@ Dazu zählen:</br>
 <li>Mineralogie, Petrologie und Geochemie</li>
 <li>Geographie (z. B. Physische Geographie; Humangeographie)</li>
 <li>Wasserforschung (z. B. Hydrogeologie, Hydrologie, Limnologie, Siedlungswasserwirtschaft, Wasserchemie, Integrierte Wasserressourcen-Bewirtschaftung)</li></ul>
-<b>ACHTUNG</b>: Unspezifisch als Klimaforscher:in bezeichnete wissenschaftliche Akteur:innen, bei denen keine andere disziplinäre Verortung aus dem Kontext abgeleitet werden kann, werden unter dieser Unterkategorie erfasst.</div></p>
+<b>ACHTUNG</b>: Unspezifisch als Klimaforscher:in bezeichnete wissenschaftliche Akteur:innen, bei denen keine andere disziplinäre Verortung aus dem Kontext abgeleitet werden kann, werden unter dieser Unterkategorie erfasst. Ebenso Klimawissenschaftler:innen, die an der Schnittstelle zwischen Geo- und Sozialwissenschaften tätig sind (z. B. Klimaökonom:innen).</div></p>
 <p><div style="margin-left:20px;"><b>10</b> Informatik, System- und Elektrotechnik</br>
 Dazu zählen:</br>
 <ul>
@@ -105,4 +105,4 @@ Dazu zählen:</br>
 (z. B. Architektur, Bau- und Konstruktionsgeschichte, Bauforschung, Ressourcenökonomie im Bauwesen; Städtebau/Stadtentwicklung, Raumplanung, Verkehrs- und Infrakstrukturplanung, Landschaftsplanung; Baustoffwissenschaften, Bauchemie, Bauphysik; Konstruktiver Ingenieurbau, Bauinformatik und Baubetrieb; Angewandte Mechanik, Statik und Dynamik; Geotechnik, Wasserbau)</div></p>
 <p><div style="margin-left:20px;"><b>13</b> interdisziplinäre Wissenschaft</div></p>
 <p><div style="margin-left:20px;"><b>14</b> kein:e Forscher:in</div></p>
-<p><div style="margin-left:20px;"><b>99</b> nicht feststellbar</div></p>	
+<p><div style="margin-left:20px;"><b>99</b> nicht feststellbar</div></p>
