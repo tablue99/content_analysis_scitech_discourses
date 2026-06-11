@@ -1851,7 +1851,7 @@ server <- function(input, output, session){
       pull(max_id)
     # Falls noch keine Aussage identifiziert wurde, wird die max_id auf 0 festgesetzt, sodass die erste identifizierte Aussage mit einer ID, die mit 1 endet, erfasst wird
     if(length(max_id) == 0){
-      max_id <- as.numeric(paste0(current_actor_id, 0))
+      max_id <- as.numeric(paste0(current_actor_id, "00"))
     } else {
       max_id <- max_id
     }
