@@ -630,8 +630,8 @@ valclaim_input <- radioButtons("valclaim", label = "Geltungsanspruch",
                                selected = character(0))
 
 obj_persp_input <- radioButtons("obj_persp", label = "Perspektive (\"Objektivität\")",
-                                choices = c("objektive Einordnung" = 21,
-                                            "subjektive Einschätzung" = 22),
+                                choices = c("(objektive) Einordnung" = 21,
+                                            "subjektive Einschätzung/Bewertung" = 22),
                                 selected = character(0))
 
 eval_subj_oberkat_input <- radioButtons("eval_subj_oberkat", label = "Bewertungssubjekt",
@@ -662,7 +662,7 @@ time_persp_input <- radioButtons("time_persp", label = "Zeitlicher Bezug",
                                  choices = c("Vergangenheit" = 1,
                                              "Gegenwart" = 2,
                                              "Zukunft" = 3,
-                                             "kein zeitlicher Bezug erkennbar" = 9),
+                                             "kein zeitlicher Bezug erkennbar/unklar" = 9),
                                  selected = character(0))
 
 addressee_input <- radioButtons("addressee", label = "Adressat",
@@ -867,7 +867,7 @@ server <- function(input, output, session){
   # Zahl der codierten Akteur:innen
   rv$actors_coded <- 0
   # Index des:der aktuellen Akteur:in
-  rv$index_actor <- 0
+  rv$index_actor <- 1
   # Index der aktuellen Aussage
   rv$index_statement <- 0
   # Index der aktuellen Interaktion
@@ -1112,7 +1112,6 @@ server <- function(input, output, session){
       else{
         ids <<- full_dataset[!full_dataset$coded,][["entity_id"]]
       }
-      rv$index_actor <- rv$index_actor + 1
     }
   })
   
@@ -2105,6 +2104,8 @@ server <- function(input, output, session){
     if(rv$index_statement > 1){
       # der Aussagenindex wird um 1 verringert
       rv$index_statement <- rv$index_statement - 1
+      # die letzte Zeile wird aus dem Statement-Datensatz gelöscht
+      statements(statements()[-max(nrow(statements())),])
     }
     else {
       # Wenn bereits die erste Aussage eines:einer Akteur:in angezeigt wird, erscheint eine Fehlermeldung
@@ -2238,6 +2239,8 @@ server <- function(input, output, session){
     )
     # bereits in den Datensätzen für den:die Akteur:in gespeicherte Aussagen und Interaktionen werden mit der reset_saved_text_inputs-Funktion gelöscht
     reset_saved_text_inputs(actor_id)
+    # Die Zahl der codierten Akteur:innen wird um 1 verringert
+    rv$actors_coded <- rv$actors_coded - 1
   })
   
 }

@@ -29,6 +29,10 @@ Es werden ausschließlich **wörtliche oder indirekte Aussagen der Akteur:innen*
 
 *Hinweis*: Werden verschiedene irrelevante Aussagen (d. h. Aussagen, die sich nicht auf den Diskurs(gegenstand) oder seine Akteur:innen beziehen) direkt nacheinander geäußert, so können diese, auch wenn sich der Aussagentyp oder die -tendenz ändert, gemeinsam als eine Aussage erfasst und anschließend herausgefiltert werden. In langen Interviews werden nur diejenigen Passagen codiert, die sich auf den Diskurs(gegenstand) beziehen. Alle anderen Textabschnitte und darin getätigte Aussagen können ignoriert werden. 
 
+*Hinweis*: Für die spätere Auswertung ist die genaue Zahl der Aussagen irrelevant. Es wird lediglich die "Tendenz" der Akteur:innen zu bestimmten Aussagentypen und -tendenzen ausgewertet. Es ist im Zweifel also nicht schlimm, wenn zu viele Aussagen desselben Typs codiert werden. Daher sollten lieber zu viele als zu wenige Aussagen erfasst werden.
+
+**ACHTUNG**: Das Zurückspringen zur letzten Aussage ist während der Aussagenidentifikation aus technischen Gründen nicht möglich. An dieser Stelle kann nur zur Akteurscodierung zurückgesprungen werden, woraufhin die Aussagenidentifkation und -codierung zurückgesetzt wird. Entsprechend muss dann die gesamte Codierung auf dieser Ebene neu gestartet werden.
+
 ###### **Aussagen-ID** [statement_id]
 Jede im Freitextfeld erfasste Aussage erhält automatisch eine einzigartige Aussagen-ID, die sich aus der [entity_id] des:der Expert:in und der Reihenfolge ihrer Identifikation ergibt (z. B. erste Aussage des:der Akteur:in 100401 = 100401**1**. Eine manuelle Codierung ist nicht erforderlich.
 
