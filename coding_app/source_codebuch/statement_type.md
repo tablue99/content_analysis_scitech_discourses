@@ -56,7 +56,8 @@ Es wird ein Urteil über (die Handlungen von) wirtschaftliche Kollektive, also k
 <p><div style="margin-left:120px;"><b>27</b> zivilgesellschaftliche Organisationen</br>
 Bewertungen von (Handlungen von) zivilgesellschaftlichen Interessensverbänden, die Kollektivgüter oder wertorientierte Partialinteressen vertreten (z. B. NGOs, Kirchen, Gewerkschaften).</div></p>
 <p><div style="margin-left:120px;"><b>28</b> (allgemeine) Öffentlichkeit</br>
-Kollektive Bewertungen von unspezifischen, d. h. nicht namentlich genannte Individual- oder Privatpersonen, "der" Öffentlichkeit oder Allgemeinheit.</div></p>
+Kollektive Bewertungen von unspezifischen, d. h. nicht namentlich genannte Individual- oder Privatpersonen, "der" Öffentlichkeit oder Allgemeinheit.</br>
+<i>Hinweis:</i> Wird eine gesellschaftliche Teilgruppe angesprochen, von der potenziell jede:r, ohne weitere formale Voraussetzungen zu erfüllen, Teil werden kann (z. B. Schaulustige), wird auch dieser Code gewählt. Ist die Gruppe enger definiert, z. B. wenn Tourist:innen oder Zeug:innen eines bestimmten Ereignisses bewertet werden, ist "29 = Sonstige" zu vergeben. Dieser Code wird auch in Zweifelsfällen gewählt.</div></p>
 <p><div style="margin-left:120px;"><b>29</b> Sonstige/nicht erkennbar</br>
 Urteile über Kollektive, die sich keiner der zuvor genannten Kategorien zuordnen lassen (z. B. Medien, Bildung, Kultur). Falls eine Spezifizierung erwünscht ist, können an dieser Stelle weitere Unterausprägungen aus dem <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/fe3fb7be0fc8b03b4884ad7437045d5eadeec858/coding_app/modules_and_add_ons/add_on_eval_subj_others" target="_blank"> Add-On [eval_subj_others]</a> hinzugefügt werden.</div></p>
 <p><div style="margin-left:100px;"><b>99</b> Sonstige/nicht erkennbar<br>
@@ -125,7 +126,8 @@ Handlungsaufforderungen an zivilgesellschaftliche Interessensverbände, die Koll
 Beispiel: "Der Nabu ist dafür verantwortlich, dass..."</div></p>
 <p><div style="margin-left:80px;"><b>318</b> bzw. <b>328</b> (allgemeine) Öffentlichkeit</br>
 Handlungsanforderungen, die an Kollektive aus unspezifischen, d. h. nicht namentlich genannten Individual- oder Privatpersonen bestehen, gerichtet sind, z. B. "die" Öffentlichkeit oder Allgemeinheit.</br>
-Beispiele: "Die Bevölkerung muss nun wachsam sein", "Wir alle sind gefordert!"</div></p>
+Beispiele: "Die Bevölkerung muss nun wachsam sein", "Wir alle sind gefordert!"</br>
+<i>Hinweis:</i> Wird eine gesellschaftliche Teilgruppe angesprochen, von der potenziell jede:r, ohne weitere formale Voraussetzungen zu erfüllen, Teil werden kann (z. B. Schaulustige), wird auch dieser Code gewählt. Ist die Gruppe enger definiert, z. B. wenn Tourist:innen oder Zeug:innen eines bestimmten Ereignisses adressiert werden, ist "29 = Sonstige" zu vergeben. Dieser Code wird auch in Zweifelsfällen gewählt.</div></p>
 <p><div style="margin-left:80px;"><b>319</b> bzw. <b>329</b> Sonstige/nicht erkennbar</br>
 Handlungsaufforderungen an Kollektive, die sich keiner der zuvor genannten Kategorien zuordnen lassen (z. B. Medien, Bildung, Kultur). Falls eine Spezifizierung erwünscht ist, können an dieser Stelle weitere Unterausprägungen aus dem <a href="https://github.com/tablue99/content_analysis_scitech_discourses/tree/485d4f1bc33e1f447cca8150e7ef4f4745c5f545/coding_app/modules_and_add_ons/add_on_addressee_others" target="_blank"> Add-On [addressee_others]</a> hinzugefügt werden.</div></p>
 <p><div style="margin-left:20px;"><b>4</b> Selbstverpflichtungen (Kommissiva)</br>
