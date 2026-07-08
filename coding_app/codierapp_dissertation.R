@@ -1323,7 +1323,7 @@ server <- function(input, output, session){
     if(("" %in% c(empty_inputs(input$statement_type_oberkat), empty_inputs(input$statement_leaning)) & !input$irrelevant_statement) |
        (empty_inputs(input$valclaim) == "" & input$statement_type_oberkat == 1) |
        ("" %in% c(empty_inputs(input$obj_persp), empty_inputs(input$time_persp)) & input$statement_type_oberkat == 2) |
-       ("" %in% c(empty_inputs(input$eval_subj_oberkat), empty_inputs(input$eval)) & empty_inputs(input$obj_persp) == 22) |
+       ("" %in% c(empty_inputs(input$eval_subj_oberkat), empty_inputs(input$eval)) & empty_inputs(input$obj_persp) == 22 & input$statement_type_oberkat == 2) |
        (empty_inputs(input$eval_subj_actor) == "" & empty_inputs(input$eval_subj_oberkat) == 2 & empty_inputs(input$obj_persp) == 22 & input$statement_type_oberkat == 2) |
        (input$dir_int_eval == "" & empty_inputs(input$eval_subj_actor) == 21) |
        (input$dir_int_other_eval == "" & empty_inputs(input$eval_subj_actor) == 22) |
