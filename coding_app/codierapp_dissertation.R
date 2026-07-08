@@ -2116,13 +2116,22 @@ server <- function(input, output, session){
   })
   
   ## Zurück zur letzten Interaktion (Interaktionscodierung)
+  
+  # Zwischenspeicher, um Bedingung für den end_interaction_coding-Button zu prüfen
+  rv$show_end_interaction_coding <- reactive({
+    rv$index_interaction == length(interaction_ids_by_actor())
+  })
+  
   observeEvent(input$last_interaction, {
-    removeUI(selector = "#end_interaction_coding")
-    insertUI(selector = "#interaction_inputs", where = "afterEnd",
-             ui = tags$div(id = "change_interaction",
-                           style = "line-height: 0.5;",
-                           br(),
-                           actionButton("submit_interaction", "Weiter", class = "btn-info btn-lg", width = "100%")))
+    if(rv$show_end_interaction_coding()){
+      removeUI(selector = "#end_interaction_coding")
+      insertUI(selector = "#interaction_inputs", where = "afterEnd",
+               ui = tags$div(id = "change_interaction",
+                             style = "line-height: 0.5;",
+                             br(),
+                             actionButton("submit_interaction", "Weiter", class = "btn-info btn-lg", width = "100%")))
+    }
+    
     if(rv$index_interaction > 1){
       # der Interaktionsindex wird um 1 verringert
       rv$index_interaction <- rv$index_interaction - 1
@@ -2143,6 +2152,7 @@ server <- function(input, output, session){
     removeUI(selector = "#text_area_statement")
     removeUI(selector = "#interaction_inputs")
     removeUI(selector = "#text_area_actor_interaction")
+    removeUI(selector = "#change_interaction")
     removeUI(selector = "#end_interaction_coding")
     removeUI(selector = "#text_area_actor")
     # Die UI für die Akteurscodierung wird wieder eingeblendet
