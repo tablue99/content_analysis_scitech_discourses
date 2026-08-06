@@ -1153,8 +1153,11 @@ server <- function(input, output, session){
   
   # Wenn die Codierung der Akteur:inneneigenschaften über den "submit_actor"-Button beendet wird, werden die Akteurscodierungen im Datensatz gespeichert und die Codieroberfläche wird verändert, um mit der Aussagenidentifikation zu beginnen
   observeEvent(input$submit_actor, {
+    if(input$besprechung){
+      rv$index_actor <- rv$index_actor + 1
+    }
     # zuvor wird überprüft, ob alle relevanten Felder in der Akteurscodierung ausgefüllt wurden
-    if(("" %in% c(input$affiliation, empty_inputs(input$gender), input$socarea_oberkat, empty_inputs(input$actlocal)) & !input$opt_out_relevant) |
+    else if(("" %in% c(input$affiliation, empty_inputs(input$gender), input$socarea_oberkat, empty_inputs(input$actlocal)) & !input$opt_out_relevant) |
        (empty_inputs(input$socarea_wiss) == "" & input$socarea_oberkat == 100) |
        (empty_inputs(input$socarea_pol) == "" & input$socarea_oberkat == 200) |
        (empty_inputs(input$socarea_iv) == "" & input$socarea_oberkat == 300) |
