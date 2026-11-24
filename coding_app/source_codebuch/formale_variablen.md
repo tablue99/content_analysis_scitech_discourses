@@ -4,7 +4,9 @@ Auf der Artikelebene werden zuvor einige formale Variablen festgehalten. Mit Aus
 
 ###### **Coder-ID** [coder_id]
 Jede:r Codierer:in erhält eine spezifische Identifikationsnummer. So können die Artikel, die codiert wurden, einem:einer Codierer:in zugeordnet werden.
-<div style="text-indent:20px;"><b>1</b> Tabea Lüders</div></br>
+<p><div style="text-indent:20px;"><b>1</b> Tabea Lüders</div></n>
+<div style="text-indent:20px;"><b>2</b> Vincent Boger</div></n>
+<div style="text-indent:20px;"><b>3</b> Anna Mues</div></p>
 
 ###### **Artikel-ID** [document_id]
 Jeder Artikel erhält eine eindeutige Identifikationsnummer, die automatisiert während des NER-Verfahrens erhoben wird. Eine manuelle Codierung ist nicht erforderlich.

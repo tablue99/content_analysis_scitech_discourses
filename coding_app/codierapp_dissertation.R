@@ -262,18 +262,65 @@ save_interactions <- function(interaction, inputs, interactions_dataset, new_int
   }
   # Vor dem Export wird der Datensatz noch mit den Codierungen der direkten Interaktionen ergänzt
   coded_statements <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
+  coded_actors <- full_dataset
   full_interaction_dataset <- full_interaction_dataset |> 
     mutate(join_id = if_else(!is.na(batch_id), batch_id, int_id)) |> 
     left_join(coded_statements |> 
-                select(dir_int, dir_int_eval, dir_int_actclaim, dir_int_batch, int_type) |> 
-                pivot_longer(cols = c(dir_int:dir_int_batch),
+                select(dir_int, dir_int_eval, dir_int_actclaim, dir_int_batch, int_type) |>
+                separate(dir_int, into = c("entity_1_dir_int", "entity_2_dir_int"), sep = "_") |> 
+                separate(dir_int_eval, into = c("entity_1_eval", "entity_2_eval"), sep = "_") |> 
+                separate(dir_int_actclaim, into = c("entity_1_actclaim", "entity_2_actclaim"), sep = "_") |>
+                mutate(entity_1 = case_when(!is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                            !is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                            !is.na(entity_1_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_2_eval,
+                                            !is.na(entity_1_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_1_eval,
+                                            !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                            !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                            .default = NA),
+                       entity_2 = case_when(!is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                            !is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                            !is.na(entity_2_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_1_eval,
+                                            !is.na(entity_2_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_2_eval,
+                                            !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                            !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                            .default = NA),
+                       dir_int = if_else(!is.na(entity_1), paste0(entity_1, "_", entity_2), NA)) |>
+                select(-c(entity_1_dir_int, entity_2_dir_int, entity_1_eval, entity_2_eval, entity_1_actclaim, entity_2_actclaim)) |>
+                pivot_longer(cols = c(dir_int, dir_int_batch),
                              names_to = "variable",
                              values_to = "join_id") |> 
                 filter(!is.na(join_id)) |> 
-                select(join_id, int_type) |> 
-                mutate(join_id = as.character(join_id)), by = "join_id", suffix = c("", "_stat")) |> 
-    mutate(int_type = if_else(is.na(int_type), int_type_stat, int_type)) |> 
-    select(-c(join_id, int_type_stat))
+                select(join_id, int_type), by = "join_id", suffix = c("", "_stat")) |> 
+    mutate(int_type = if_else(!is.na(int_type_stat), int_type_stat, int_type)) |>
+    select(-c(join_id, int_type_stat)) |> 
+    bind_rows(coded_statements |> 
+                select(dir_int, dir_int_eval, dir_int_actclaim, int_type) |>
+                separate(dir_int, into = c("entity_1_dir_int", "entity_2_dir_int"), sep = "_") |> 
+                separate(dir_int_eval, into = c("entity_1_eval", "entity_2_eval"), sep = "_") |> 
+                separate(dir_int_actclaim, into = c("entity_1_actclaim", "entity_2_actclaim"), sep = "_") |>
+                mutate(entity_id = as.numeric(case_when(!is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                                        !is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                                        !is.na(entity_1_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_2_eval,
+                                                        !is.na(entity_1_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_1_eval,
+                                                        !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                                        !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                                        .default = NA)),
+                       entity_id_2 = as.numeric(case_when(!is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                                          !is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                                          !is.na(entity_2_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_1_eval,
+                                                          !is.na(entity_2_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_2_eval,
+                                                          !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                                          !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                                          .default = NA)),
+                       int_id = if_else(!is.na(entity_id), paste0(entity_id, "_", entity_id_2), NA)) |> 
+                select(-c(entity_1_dir_int, entity_2_dir_int, entity_1_eval, entity_2_eval, entity_1_actclaim, entity_2_actclaim)) |> 
+                left_join(actors |> 
+                            select(entity_id, entity, document_id), by = "entity_id") |> 
+                left_join(coded_actors |> 
+                            select(entity_id, entity), by = c("entity_id_2" = "entity_id"), suffix = c("", "_2")) |> 
+                filter(!is.na(entity_id))) |> 
+    distinct(int_id, .keep_all = TRUE) |> 
+    arrange(entity_id)
   
   saveRDS(full_interaction_dataset, file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
 }
@@ -305,18 +352,65 @@ save_new_direct_interactions <- function(interactions_dataset, new_interactions)
   }
   # Vor dem Export wird der Datensatz noch mit den Codierungen der direkten Interaktionen ergänzt
   coded_statements <- readRDS(file.path(file_paths_new_datasets, paste0("coded_statements_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
+  coded_actors <- full_dataset
   full_interaction_dataset <- full_interaction_dataset |> 
     mutate(join_id = if_else(!is.na(batch_id), batch_id, int_id)) |> 
     left_join(coded_statements |> 
-                select(dir_int, dir_int_eval, dir_int_actclaim, dir_int_batch, int_type) |> 
-                pivot_longer(cols = c(dir_int:dir_int_batch),
+                select(dir_int, dir_int_eval, dir_int_actclaim, dir_int_batch, int_type) |>
+                separate(dir_int, into = c("entity_1_dir_int", "entity_2_dir_int"), sep = "_") |> 
+                separate(dir_int_eval, into = c("entity_1_eval", "entity_2_eval"), sep = "_") |> 
+                separate(dir_int_actclaim, into = c("entity_1_actclaim", "entity_2_actclaim"), sep = "_") |>
+                mutate(entity_1 = case_when(!is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                            !is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                            !is.na(entity_1_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_2_eval,
+                                            !is.na(entity_1_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_1_eval,
+                                            !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                            !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                            .default = NA),
+                       entity_2 = case_when(!is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                            !is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                            !is.na(entity_2_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_1_eval,
+                                            !is.na(entity_2_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_2_eval,
+                                            !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                            !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                            .default = NA),
+                       dir_int = if_else(!is.na(entity_1), paste0(entity_1, "_", entity_2), NA)) |>
+                select(-c(entity_1_dir_int, entity_2_dir_int, entity_1_eval, entity_2_eval, entity_1_actclaim, entity_2_actclaim)) |>
+                pivot_longer(cols = c(dir_int, dir_int_batch),
                              names_to = "variable",
                              values_to = "join_id") |> 
                 filter(!is.na(join_id)) |> 
-                select(join_id, int_type) |> 
-                mutate(join_id = as.character(join_id)), by = "join_id", suffix = c("", "_stat")) |> 
-    mutate(int_type = if_else(is.na(int_type), int_type_stat, int_type)) |> 
-    select(-c(join_id, int_type_stat))
+                select(join_id, int_type), by = "join_id", suffix = c("", "_stat")) |> 
+    mutate(int_type = if_else(!is.na(int_type_stat), int_type_stat, int_type)) |>
+    select(-c(join_id, int_type_stat)) |> 
+    bind_rows(coded_statements |> 
+                select(dir_int, dir_int_eval, dir_int_actclaim, int_type) |>
+                separate(dir_int, into = c("entity_1_dir_int", "entity_2_dir_int"), sep = "_") |> 
+                separate(dir_int_eval, into = c("entity_1_eval", "entity_2_eval"), sep = "_") |> 
+                separate(dir_int_actclaim, into = c("entity_1_actclaim", "entity_2_actclaim"), sep = "_") |>
+                mutate(entity_id = as.numeric(case_when(!is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                                        !is.na(entity_1_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                                        !is.na(entity_1_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_2_eval,
+                                                        !is.na(entity_1_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_1_eval,
+                                                        !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                                        !is.na(entity_1_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                                        .default = NA)),
+                       entity_id_2 = as.numeric(case_when(!is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) > as.numeric(entity_2_dir_int) ~ entity_1_dir_int,
+                                                          !is.na(entity_2_dir_int) & as.numeric(entity_1_dir_int) < as.numeric(entity_2_dir_int) ~ entity_2_dir_int,
+                                                          !is.na(entity_2_eval) & as.numeric(entity_1_eval) > as.numeric(entity_2_eval) ~ entity_1_eval,
+                                                          !is.na(entity_2_eval) & as.numeric(entity_1_eval) < as.numeric(entity_2_eval) ~ entity_2_eval,
+                                                          !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) > as.numeric(entity_2_actclaim) ~ entity_1_actclaim,
+                                                          !is.na(entity_2_actclaim) & as.numeric(entity_1_actclaim) < as.numeric(entity_2_actclaim) ~ entity_2_actclaim,
+                                                          .default = NA)),
+                       int_id = if_else(!is.na(entity_id), paste0(entity_id, "_", entity_id_2), NA)) |> 
+                select(-c(entity_1_dir_int, entity_2_dir_int, entity_1_eval, entity_2_eval, entity_1_actclaim, entity_2_actclaim)) |> 
+                left_join(actors |> 
+                            select(entity_id, entity, document_id), by = "entity_id") |> 
+                left_join(coded_actors |> 
+                            select(entity_id, entity), by = c("entity_id_2" = "entity_id"), suffix = c("", "_2")) |> 
+                filter(!is.na(entity_id))) |> 
+    distinct(int_id, .keep_all = TRUE) |> 
+    arrange(entity_id)
   
   saveRDS(full_interaction_dataset, file.path(file_paths_new_datasets, paste0("coded_interactions_", str_extract(file_path, "(?<=/)[^/.]+(?=\\.)"), ".Rds")))
 }
@@ -556,7 +650,6 @@ socarea_pol_input <- radioButtons("socarea_pol", label = "Politischer Bereich",
 socarea_iv_input <- radioButtons("socarea_iv", label = "Interessensvertretung",
                                    choices = c("zivilgesellschaftliche Organisationen" = 310,
                                                "kommerzielle Organisationen" = 320,
-                                               "Privatpersonen" = 330,
                                                "Nicht spezifiziert" = 300),
                                  selected = character(0))
 
@@ -582,6 +675,7 @@ socarea_sonst_input <- radioButtons("socarea_sonst", label = "Sonstiger Bereich"
                                              "Bildung" = 450,
                                              "Kultur & Sport" = 460,
                                              "Journalismus" = 470,
+                                             "Privatpersonen" = 480,
                                              "Nicht spezifiziert" = 400),
                                  selected = character(0))
 
@@ -2093,6 +2187,14 @@ server <- function(input, output, session){
       # eventuell bereits gespeicherte Aussagen und Statements werden mit der reset_save_text-Funktion gelöscht
       actor_id <- draw_actor()[["entity_id"]]
       reset_saved_text_inputs(actor_id)
+      document_position <- actors_dataset() |> 
+        group_by(document_id) |> 
+        mutate(position = row_number()) |> 
+        filter(entity_id == actor_id) |> 
+        pull(position)
+      if(document_position == 1){
+        rv$index_interaction <- 0
+      }
     }
     else {
       # Wenn bereits der:die erste Akteur:in angezeigt wird, erscheint eine Fehlermeldung
