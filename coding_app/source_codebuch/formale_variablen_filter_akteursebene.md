@@ -10,7 +10,7 @@ Für jede:n Akteur:in, der:die im NER-Verfahren identifiziert wird, wird automat
 Der Name des:der Akteur:in wird automatisiert während des NER-Verfahrens erfasst. Eine manuelle Codierung ist nicht erforderlich.
 
 ###### **FILTER** [relevant]
-Ob ein:e Akteur:in relevant ist, wird mithilfe der bereits R-Funktionen im "actordupes"-Package und des lokal am KIT gehosteten gLLMs kit.gpt-oss120b automatisiert codiert. Eine manuelle Filterung ist nicht erforderlich. 
+Ob ein:e Akteur:in relevant ist, wird mithilfe der bereits R-Funktionen im "actordupes"-Package und des lokal am KIT gehosteten gLLMs kit.gpt-oss120b (ab November 2026 kit.deepseek-v4-flash) automatisiert codiert. Eine manuelle Filterung ist nicht erforderlich. 
 Es gibt jedoch die Möglichkeit, fälschlicherweise als "relevant" klassifizierte Akteur:innen (Irrläufer) im Zuge der manuellen Codierung nachträglich als "irrelevant" zu markieren und somit deren Codierung abzubrechen [opt_out_relevant].
 Nicht relevant sind NER-erkannte Akteur:innen, die 
 1. Autor:innen des Artikels sind [journalist]
